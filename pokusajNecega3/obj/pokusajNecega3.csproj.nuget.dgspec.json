@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sladj\\source\\repos\\pokusajNecega3\\pokusajNecega3\\pokusajNecega3.csproj": {}
+    "D:\\Projekat za ppp\\PPP\\pokusajNecega3\\pokusajNecega3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sladj\\source\\repos\\pokusajNecega3\\pokusajNecega3\\pokusajNecega3.csproj": {
+    "D:\\Projekat za ppp\\PPP\\pokusajNecega3\\pokusajNecega3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sladj\\source\\repos\\pokusajNecega3\\pokusajNecega3\\pokusajNecega3.csproj",
+        "projectUniqueName": "D:\\Projekat za ppp\\PPP\\pokusajNecega3\\pokusajNecega3.csproj",
         "projectName": "pokusajNecega3",
-        "projectPath": "C:\\Users\\sladj\\source\\repos\\pokusajNecega3\\pokusajNecega3\\pokusajNecega3.csproj",
+        "projectPath": "D:\\Projekat za ppp\\PPP\\pokusajNecega3\\pokusajNecega3.csproj",
         "packagesPath": "C:\\Users\\sladj\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sladj\\source\\repos\\pokusajNecega3\\pokusajNecega3\\obj\\",
+        "outputPath": "D:\\Projekat za ppp\\PPP\\pokusajNecega3\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

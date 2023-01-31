@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <div class="container">
+        <h1>Dobrodosli</h1>
+        <div class="row">
+            <div class="col-md-4">
+
+            </div>
+            <div class="col-md-4">
+                @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                {
+                    <label>Korisnicko ime:</label><br />
+                    <input type="text" name="nKor" placeholder="Unesite vase korisnicko ime" /><br />
+                    <label>Sifra</label><br />
+                    <input type="text" name="nSIf" placeholder="Unesite vasu sifru:" /><br /> <br />
+                    <input type="submit" name="nSub" value="Kreni" class="btn btn-success" />
+                }
+            </div>
+            <div class="col-md-4">
+
+            </div>
+        </div>
+
+    </div>
+</div>

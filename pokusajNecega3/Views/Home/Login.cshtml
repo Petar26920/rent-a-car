@@ -1,0 +1,26 @@
+﻿@model pokusajNecega3.Models.BusinesObject.KorisniciBO
+@{
+    ViewData["Title"] = "Login";
+
+}
+<h1>Dobrodosli</h1>
+<h2>@Model.KorisnickoIme</h2>
+
+@if (Model.Uloga == "admin")
+{
+    @Html.ActionLink("Pretraga vozila", "", "") <br/>
+    @Html.ActionLink("Unos novog vozila", "", "")<br />
+    @Html.ActionLink("Brisanje prodatog vozila", "", "")<br />
+    @Html.ActionLink("Azuriranje podataka vozila", "", "")<br />
+
+}
+
+@if (Model.Uloga == "korisnik")
+{
+    @Html.ActionLink("Provera vozila na raspolaganju", "Index", "Vozilo")<br />
+    @Html.ActionLink("Pretraga vozila", "", "")<br />
+    @Html.ActionLink("Kreiranje racuna", "", "")<br />
+    @Html.ActionLink("Storniranje racuna", "", "")<br />
+    @Html.ActionLink("Izdavanje vozila", "", "")<br />
+
+}

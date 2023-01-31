@@ -1,0 +1,54 @@
+﻿@model IEnumerable<pokusajNecega3.Models.BusinesObject.VoziloBO>
+
+<div class="row">
+    <div class="col-md-4">
+        <label>Pretraga vozila</label>
+        <div>
+            @Html.DropDownList(
+            "VozilaPregled",
+            new SelectList(@ViewBag.SvaVozila, "Tip", "Tip"),
+            "Izaberi tip",
+            new
+                 {
+                     @class = "form-control",
+                @onchange = "OnSelectedVozilo(this.value)"
+                 })
+        </div>
+    </div>
+
+</div><br /><br />
+<div id="Vozila">
+
+    @{Html.ActionLink("NadjiSvaVozilaTogTipa", "Vozilo", new { tip = "karavan" });}
+
+</div>
+<section>
+
+</section>
+
+
+<script type="text/javascript">
+
+    function OnSelectedVozilo(vozilo) {
+        console.log(typeof vozilo);
+        var idVozila = vozilo;
+        if(!idVozila)
+        {
+            idVozila = "prazno";
+        }
+        console.log(idVozila);
+        $.ajax({
+            url: '@Url.Action("NadjiSvaVozilaTogTipa", "Vozilo")',
+            data: { tip: idVozila },
+          success:   function(result) {
+              $('#Vozila').html(result);
+              document.getElementById('Vozila').value = result;
+            }
+        });
+    }
+</script>
+
+
+
+
+

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<pokusajNecega3.Models.BusinesObject.RacunBO>
+
+
+<table class="table">
+    <tr>
+        <th>Racun ID</th>
+        <th>Datum</th>
+        <th>Cena</th>
+        <th>Akcije</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(Model => item.RacunId)
+    </td>
+    <td>
+        @Html.DisplayFor(Model => item.Datum)
+    </td>
+    <td>
+        @Html.DisplayFor(Model => item.Cena)
+    </td>
+    <td>
+        <button class="btn btn-success">Pregled</button>
+        <button class="btn btn-danger">Obrisi</button>
+
+    </td>
+</tr>
+    }
+</table>

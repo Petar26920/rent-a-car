@@ -1,0 +1,80 @@
+﻿@model IEnumerable<pokusajNecega3.Models.BusinesObject.RacunBO>
+
+
+<div class="container">
+    <h1>Index</h1>
+    <div class="row">
+        <div class="col-md-4">
+
+                <label>Unesite ID racuna:</label>
+                <input class="input-group" type="text" name="nRac" id="iRac" placeholder="A-123" /> <br />
+                <input onclick="funkcija()" type="button" name="nTrazi" value="Pretrazi" class="btn btn-success" />
+
+        </div>
+
+    </div>
+</div> <br />
+
+<div id="PrikazRacuna">
+    <table class="table">
+        <tr>
+            <th>
+                RacunID:
+            </th>
+            <th>
+                Datum:
+            </th>
+            <th>
+                Cena:
+            </th>
+            <th>
+                Akcije:
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @item.RacunId
+                </td>
+                <td>
+                    @item.Datum
+                </td>
+                <td>
+                    @item.Cena
+                </td>
+                <td>
+                    <button class="btn btn-success">Pregled</button>
+                    <button class="btn btn-danger">Obrisi</button>
+                    
+                </td>
+            </tr>
+
+        }
+    </table>
+    </div>
+
+<script>
+    function funkcija() {
+        alert(parseInt(document.getElementById('iRac').value));
+        let idRacuna = parseInt(document.getElementById('iRac').value);
+        let prolaz = true;
+        alert(typeof idRacuna);
+        console.log(idRacuna);
+        if (isNaN(idRacuna)) {
+            alert("Dobro je");
+            prolaz = false;
+        }
+        $.ajax({
+            url: '@Url.Action("NadjiRacunPoID", "Racun")',
+            data: { id: idRacuna,iProlaz:prolaz },
+            success: function (result) {
+                $('#PrikazRacuna').html(result);
+                document.getElementById('PrikazRacuna').value = result
+            }
+
+        })
+    }
+</script>
+

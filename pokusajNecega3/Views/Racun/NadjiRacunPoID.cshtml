@@ -21,8 +21,7 @@
         @Html.DisplayFor(Model => item.Cena)
     </td>
     <td>
-        <button class="btn btn-success">Pregled</button>
-        <button class="btn btn-danger">Obrisi</button>
+        <button onclick="funkcija2( @item.RacunId , @item.Cena)" type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger">Obrisi</button>
 
     </td>
 </tr>

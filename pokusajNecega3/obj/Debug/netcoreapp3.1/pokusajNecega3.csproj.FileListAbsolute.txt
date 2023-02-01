@@ -254,3 +254,5 @@ D:\Projekat za ppp\PPP\pokusajNecega3\obj\Debug\netcoreapp3.1\pokusajNecega3.pdb
 D:\Projekat za ppp\PPP\pokusajNecega3\obj\Debug\netcoreapp3.1\pokusajNecega3.genruntimeconfig.cache
 D:\Projekat za ppp\PPP\pokusajNecega3\obj\Debug\netcoreapp3.1\Razor\Views\Racun\Index.cshtml.g.cs
 D:\Projekat za ppp\PPP\pokusajNecega3\obj\Debug\netcoreapp3.1\Razor\Views\Racun\NadjiRacunPoID.cshtml.g.cs
+D:\Projekat za ppp\PPP\pokusajNecega3\obj\Debug\netcoreapp3.1\Razor\Views\Dokumentacija\DodavanjeDokumentacije.cshtml.g.cs
+D:\Projekat za ppp\PPP\pokusajNecega3\obj\Debug\netcoreapp3.1\Razor\Views\Racun\Dodaj.cshtml.g.cs

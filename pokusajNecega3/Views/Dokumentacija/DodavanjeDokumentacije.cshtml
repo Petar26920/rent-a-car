@@ -1,35 +1,82 @@
-﻿
-@{
-    ViewData["Title"] = "DodavanjeDokumentacije";
-}
+﻿@*@model pokusajNecega3.Models.BusinesObject.DokuemntacijaBO
+    @{
+        ViewData["Title"] = "DodavanjeDokumentacije";
+    }
 
-<h1>DodavanjeDokumentacije</h1>
-<div class="container">
-    <div class="row">
-        <div class="col-md-5">
-            @using (Html.BeginForm("Kreiraj", "Dokumentacija", FormMethod.Post))
-            {
-                <label>Unesite broj vozacke</label> <br />
-                <input type="text" class="form-control" name="nVoz" id="iVoz" placeholder="Broj vozacke..." /><br />
-                <label>Ime:</label><br />
-                <input type="text" class="form-control" name="nIme" id="iIme" placeholder="Unesite vase ime" /><br />
-                <label>Prezime:</label><br />
-                <input type="text" class="form-control" name="nPrez" id="iPrez" placeholder="Unesite vase prezime" /><br />
-                <label>Datum rodjenja:</label><br />
-                <input type="date" class="form-control" name="nRodj" id="iRodj" placeholder="Unesite vas datum rodjenja" /><br />
-                <label>Datum izdavanja dozvole:</label><br />
-                <input type="date" class="form-control" name="nIzdavanje" id="iIzdavanje" placeholder="Unesite datum izdavanja" /><br /> <br />
-                <input type="submit" class="btn btn-success" name="nSub" id="iSub" />
-            }
+    <h1>DodavanjeDokumentacije</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                @using (Html.BeginForm("Kreiraj", "Dokumentacija", FormMethod.Post))
+                {
+                    <label>Unesite broj vozacke</label> <br />
+                    <input asp-for="Idvozacke" type="text" class="form-control" name="nVoz" id="iVoz" placeholder="Broj vozacke..." /><br />
+                    <span asp-validation-for="Idvozacke" class="text-danger"></span>
+                    <label>Ime:</label><br />
+                    <input type="text" class="form-control" name="nIme" id="iIme" placeholder="Unesite vase ime" /><br />
+                    <label>Prezime:</label><br />
+                    <input type="text" class="form-control" name="nPrez" id="iPrez" placeholder="Unesite vase prezime" /><br />
+                    <label>Datum rodjenja:</label><br />
+                    <input type="date" class="form-control" name="nRodj" id="iRodj" placeholder="Unesite vas datum rodjenja" /><br />
+                    <label>Datum izdavanja dozvole:</label><br />
+                    <input type="date" class="form-control" name="nIzdavanje" id="iIzdavanje" placeholder="Unesite datum izdavanja" /><br /> <br />
+                    <input type="submit" class="btn btn-success" name="nSub" id="iSub" />
+                }
+            </div>
+            <div id="prikazRez" class="col-md-5">
+                @if(ViewBag.Uspeh == true)
+                {
+                <div class="alert alert-success" role="alert">
+                    <p>Uspesno je dodata dokumentacija</p>
+                </div>
+                    ViewBag.Uspeh = false;
+                }
+            </div>
         </div>
-        <div id="prikazRez" class="col-md-5">
-            @if(ViewBag.Uspeh == true)
-            {
-                <p>Uspesno je dodata dokumentacija</p>
-                ViewBag.Uspeh = false;
-            }
-        </div>
+
+    </div>*@
+@* Ovo iznad je prvi pokusaj da radi i radilo je ali nisu htele data anotations, ispod radi kako treba *@
+@model pokusajNecega3.Models.BusinesObject.DokuemntacijaBO
+
+<h4>Kreiranje dokumentacije</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Kreiraj">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Idvozacke" typeof="text" class="control-label">Broj vozacke:</label>
+                <input asp-for="Idvozacke" class="form-control" />
+                <span asp-validation-for="Idvozacke" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ime" class="control-label">Ime:</label>
+                <input asp-for="Ime" class="form-control" />
+                <span asp-validation-for="Ime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Prezime" class="control-label">Prezime:</label>
+                <input asp-for="Prezime" class="form-control" />
+                <span asp-validation-for="Prezime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DatumRodjenja" class="control-label">Datum rodjenja:</label>
+                <input asp-for="DatumRodjenja" type="date" class="form-control" />
+                <span asp-validation-for="DatumRodjenja" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DatumIzdavanjaDozvole" class="control-label">Datum izdavanja dozvole:</label>
+                <input asp-for="DatumIzdavanjaDozvole" type="date" class="form-control" />
+                <span asp-validation-for="DatumIzdavanjaDozvole" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Kreiraj" class="btn btn-primary" />
+            </div>
+        </form>
     </div>
-
 </div>
+
+
+
 

@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "DodavanjeDokumentacije";
+}
+
+<h1>DodavanjeDokumentacije</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            @using (Html.BeginForm("Kreiraj", "Dokumentacija", FormMethod.Post))
+            {
+                <label>Unesite broj vozacke</label> <br />
+                <input type="text" class="form-control" name="nVoz" id="iVoz" placeholder="Broj vozacke..." /><br />
+                <label>Ime:</label><br />
+                <input type="text" class="form-control" name="nIme" id="iIme" placeholder="Unesite vase ime" /><br />
+                <label>Prezime:</label><br />
+                <input type="text" class="form-control" name="nPrez" id="iPrez" placeholder="Unesite vase prezime" /><br />
+                <label>Datum rodjenja:</label><br />
+                <input type="date" class="form-control" name="nRodj" id="iRodj" placeholder="Unesite vas datum rodjenja" /><br />
+                <label>Datum izdavanja dozvole:</label><br />
+                <input type="date" class="form-control" name="nIzdavanje" id="iIzdavanje" placeholder="Unesite datum izdavanja" /><br /> <br />
+                <input type="submit" class="btn btn-success" name="nSub" id="iSub" />
+            }
+        </div>
+        <div id="prikazRez" class="col-md-5">
+            @if(ViewBag.Uspeh == true)
+            {
+                <p>Uspesno je dodata dokumentacija</p>
+                ViewBag.Uspeh = false;
+            }
+        </div>
+    </div>
+
+</div>
+

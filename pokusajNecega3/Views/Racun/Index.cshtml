@@ -1,0 +1,132 @@
+﻿@model IEnumerable<pokusajNecega3.Models.BusinesObject.RacunBO>
+
+
+<div class="container">
+    <h1>Index</h1>
+    <div class="row">
+        <div class="col-md-4">
+
+            <label>Unesite ID racuna:</label>
+            <input class="input-group" type="text" name="nRac" id="iRac" placeholder="A-123" /> <br />
+            <input onclick="funkcija()" type="button" name="nTrazi" value="Pretrazi" class="btn btn-success" />
+
+        </div>
+
+    </div>
+</div>
+<br />
+
+<div id="PrikazRacuna">
+    <table class="table">
+        <tr>
+            <th>
+                RacunID:
+            </th>
+            <th>
+                Datum:
+            </th>
+            <th>
+                Cena:
+            </th>
+            <th>
+                Akcije:
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @item.RacunId
+                </td>
+                <td>
+                    @item.Datum
+                </td>
+                <td>
+                    @item.Cena
+                </td>
+                <td>
+                    @* Datum ne radi mora da popravis *@
+                    <button onclick="funkcija2( @item.RacunId , @item.Cena)" type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger">Obrisi</button>
+
+                </td>
+            </tr>
+
+        }
+    </table>
+</div>
+
+<!-- Modal za brisanje -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Da li ste sigurni da zelite da izbrisete izabrani racun</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label>Id racuna:</label><br />
+                <input class="form-control" readonly type="text" name="nId" id="iId" value="" /><br />
+                @*<input readonly type="text" name="nDat" id="iDat" value="" />*@
+                <label>Cena racuna:</label><br />
+                <input class="form-control" readonly type="text" name="nCen" id="iCen" value="" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Zatvori</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="brisiRacun()">Izbrisi</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    //funkcija za brisanje racuna
+    function brisiRacun() {
+        let id = document.getElementById('iId').value;
+        alert(id);
+        if (id != null) {
+            $.ajax({
+            url: '@Url.Action("Brisi", "Racun")',
+            data: { idRacuna: id},
+            success: function (result) {
+                $('#PrikazRacuna').html(result);
+                document.getElementById('PrikazRacuna').value = result
+            }
+
+        })
+        }
+    }
+    //funkcija za prenos id racuna 
+    function funkcija2(id,cena) {
+        
+        document.getElementById('iId').value = id;
+        /*Datum ne zeli da radi mora da poravis*/
+        /*document.getElementById('iDat').value = datum;*/
+        document.getElementById('iCen').value = cena;
+        
+    }
+
+    function funkcija() {
+        alert(parseInt(document.getElementById('iRac').value));
+        let idRacuna = parseInt(document.getElementById('iRac').value);
+        let prolaz = true;
+        alert(typeof idRacuna);
+        console.log(idRacuna);
+        if (isNaN(idRacuna)) {
+            alert("Dobro je");
+            prolaz = false;
+        }
+        $.ajax({
+            url: '@Url.Action("NadjiRacunPoID", "Racun")',
+            data: { id: idRacuna,iProlaz:prolaz },
+            success: function (result) {
+                $('#PrikazRacuna').html(result);
+                document.getElementById('PrikazRacuna').value = result
+            }
+
+        })
+    }
+</script>
+

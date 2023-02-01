@@ -1,0 +1,46 @@
+﻿@model IEnumerable<pokusajNecega3.Models.BusinesObject.VoziloBO>
+@{
+    ViewData["Title"] = "Dodaj";
+}
+
+<h1>Dodajte novi racun</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            @using (Html.BeginForm("DodajRacun", "Racun", FormMethod.Post))
+            {
+                <label>ID-Racuna</label> <br />
+                <input type="text" class="form-control" name="nId" id="iId" /><br />
+                <label>Registracioni broj vozila:</label> <br />
+                @Html.DropDownList("VozilaPregled", new SelectList(@ViewBag.Vozila, "RegistracioniBroj", "RegistracioniBroj"),
+            "Izaberi",
+            new
+            {
+                @class = "form-control",
+                //@onchange = "OnSelectedVozilo(this.value)"
+            })<br />
+            <label>Izaberite dokumentaciju:</label><br />
+                @Html.DropDownList("DokumentacijaPregled", new SelectList(@ViewBag.Dokumentacija, "Idvozacke", "Idvozacke"),
+                "Izaberi",
+                new
+                {
+                    @class = "form-control",
+                    @onchange = "provera(this.value)"
+                })<br />
+                <label>Cena:</label> <br />
+                <input type="number" id="iCen" name="nCen" class="form-control" /> <br />
+                <label>Broj dana:</label> <br />
+                <input type="number" id="iDan" name="nDan" class="form-control" /> <br />
+                <label>Datum</label> <br />
+                <input type="date" id="iDat" name="nDat" class="form-control" /> <br /> <br />
+                <input type="submit" value="Kreiraj racun" class="btn btn-success" name="nSub" id="iSub" />
+            }
+        </div>
+    </div>
+
+</div>
+<script>
+    function provera(prov) {
+        alert(prov);
+    }
+</script>

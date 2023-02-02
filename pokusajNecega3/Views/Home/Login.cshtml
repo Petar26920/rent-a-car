@@ -14,7 +14,7 @@
 
 @if (Model.Uloga == "admin")
 {
-    @Html.ActionLink("Pretraga vozila", "", "") <br/>
+    @Html.ActionLink("Pretraga vozila", "NadjiVoziloPoReg", "Vozilo") <br/>
     @Html.ActionLink("Unos novog vozila", "", "")<br />
     @Html.ActionLink("Brisanje prodatog vozila", "", "")<br />
     @Html.ActionLink("Azuriranje podataka vozila", "", "")<br />
@@ -24,7 +24,7 @@
 @if (Model.Uloga == "korisnik")
 {
     @Html.ActionLink("Provera vozila na raspolaganju", "Index", "Vozilo")<br />
-    @Html.ActionLink("Pretraga vozila", "", "")<br />
+    @Html.ActionLink("Pretraga vozila", "NadjiVoziloPoReg", "Vozilo")<br />
     @Html.ActionLink("Kreiranje racuna", "Dodaj", "Racun")<br />
     @Html.ActionLink("Storniranje racuna", "Index", "Racun")<br />
     @Html.ActionLink("Kreiranje dokumentacije", "Index", "Dokumentacija")<br />

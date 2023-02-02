@@ -31,6 +31,37 @@ namespace pokusajNecega3.Controllers
             }
             return PartialView("ListaVozila", vozilo.NadjiSvaVozila());
         }
-        
+
+
+
+
+
+       
+
+        public IActionResult NadjiVoziloPoReg(string reg, bool iProlaz)
+        {
+            if (iProlaz == true)
+            {
+                return PartialView(vozilo.NadjiVoziloPoReg(reg));
+            }
+            else
+            {
+                return PartialView(vozilo.NadjiSvaVozila());
+            }
+
+        }
+
+
+        [HttpPost]
+        public IActionResult DodajVozilo()
+        {
+            return PartialView(vozilo.NadjiSvaVozila());
+        }
+
+
+
+
+
+
     }
 }

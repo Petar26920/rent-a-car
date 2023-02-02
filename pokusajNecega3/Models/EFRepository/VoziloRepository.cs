@@ -10,6 +10,24 @@ namespace pokusajNecega3.Models.EFRepository
     public class VoziloRepository : IVoziloRepository
     {
         private ProjekatZaPPPKojiRadiContext baza = new ProjekatZaPPPKojiRadiContext();
+        
+        
+        public IEnumerable<VoziloBO> NadjiVoziloPoReg(string reg)
+        {
+                List<VoziloBO> listaVozila = new List<VoziloBO>();
+                foreach (Vozilo vozilo in baza.Vozilo.Where(t => t.RegistracioniBroj == reg))
+                {
+                    VoziloBO voziloBo = new VoziloBO();
+                    voziloBo.RegistracioniBroj = vozilo.RegistracioniBroj;
+                    voziloBo.Tip = vozilo.Tip;
+                    voziloBo.Model = vozilo.Model;
+                    voziloBo.Zauzeto = vozilo.Zauzeto;
+                    listaVozila.Add(voziloBo);
+                }
+                return listaVozila; 
+        }
+        
+        
         public IEnumerable<VoziloBO> NadjiSvaVozila()
         {
             List<VoziloBO> listaVozila = new List<VoziloBO>();
@@ -45,6 +63,19 @@ namespace pokusajNecega3.Models.EFRepository
             }
 
             return listaVozila;
+        }
+
+        public void DodajVozilo(VoziloBO voziloBo)
+        {
+            Vozilo vozilo = new Vozilo();
+            vozilo.RegistracioniBroj = voziloBo.RegistracioniBroj;
+            vozilo.Tip = voziloBo.Tip;
+            vozilo.Model = voziloBo.Model;
+            vozilo.Zauzeto = voziloBo.Zauzeto;
+
+            baza.Vozilo.Add(vozilo);
+
+            baza.SaveChanges();
         }
     }
 }

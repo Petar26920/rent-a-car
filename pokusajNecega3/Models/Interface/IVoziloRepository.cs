@@ -8,7 +8,10 @@ namespace pokusajNecega3.Models.Interface
 {
     interface IVoziloRepository
     {
+        IEnumerable<VoziloBO> NadjiVoziloPoReg(string reg);
         IEnumerable<VoziloBO> NadjiSvaVozila();
         IEnumerable<VoziloBO> NadjiSvaVozilaTogTipa(string tip);
+        public void DodajVozilo(VoziloBO voziloBo);
+
     }
 }

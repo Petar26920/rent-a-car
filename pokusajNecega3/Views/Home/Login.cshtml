@@ -6,27 +6,28 @@
 <h1>Dobrodosli</h1>
 <h2>@Model.KorisnickoIme</h2>
 
-@if(String.IsNullOrEmpty(Model.Uloga) == true)
-{
-    <h2>Morate da se ulogujete prvo: </h2>
-    @Html.ActionLink("Nazad", "Index", "Home");
-}
 
-@if (Model.Uloga == "admin")
-{
-    @Html.ActionLink("Pretraga vozila", "", "") <br/>
-    @Html.ActionLink("Unos novog vozila", "", "")<br />
-    @Html.ActionLink("Brisanje prodatog vozila", "", "")<br />
-    @Html.ActionLink("Azuriranje podataka vozila", "", "")<br />
+    @if (String.IsNullOrEmpty(Model.Uloga) == true)
+    {
+        <h2>Morate da se ulogujete prvo: </h2>
+        @Html.ActionLink("Nazad", "Index", "Home");
+    }
 
-}
+    @if (Model.Uloga == "admin")
+    {
+        @Html.ActionLink("Pretraga vozila", "", "") <br />
+        @Html.ActionLink("Unos novog vozila", "", "")<br />
+        @Html.ActionLink("Brisanje prodatog vozila", "", "")<br />
+        @Html.ActionLink("Azuriranje podataka vozila", "", "")<br />
 
-@if (Model.Uloga == "korisnik")
-{
-    @Html.ActionLink("Provera vozila na raspolaganju", "Index", "Vozilo")<br />
-    @Html.ActionLink("Pretraga vozila", "", "")<br />
-    @Html.ActionLink("Kreiranje racuna", "Dodaj", "Racun")<br />
-    @Html.ActionLink("Storniranje racuna", "Index", "Racun")<br />
-    @Html.ActionLink("Kreiranje dokumentacije", "Index", "Dokumentacija")<br />
+    }
 
-}
+    @if (Model.Uloga == "korisnik")
+    {
+        @Html.ActionLink("Provera vozila na raspolaganju", "Index", "Vozilo")<br />
+        @Html.ActionLink("Pretraga vozila", "", "")<br />
+        @Html.ActionLink("Kreiranje racuna", "Dodaj", "Racun")<br />
+        @Html.ActionLink("Storniranje racuna", "Index", "Racun")<br />
+        @Html.ActionLink("Kreiranje dokumentacije", "Index", "Dokumentacija")<br />
+
+    }

@@ -3,7 +3,8 @@
 
 <div class="container">
     @if (ViewBag.Uspeh == true)
-     { ViewBag.Uspeh = false;
+    {
+        ViewBag.Uspeh = false;
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Uspesno ste dodali racun!</strong>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -12,6 +13,12 @@
         </div>
     }
 
+    <div hidden id="prikazUspeha" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Uspesno ste obrisali racun!</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
     <h1>Index</h1>
     <div class="row">
         <div class="col-md-4">
@@ -79,7 +86,7 @@
             <div class="modal-body">
                 <label>Id racuna:</label><br />
                 <input class="form-control" readonly type="text" name="nId" id="iId" value="" /><br />
-                @*<input readonly type="text" name="nDat" id="iDat" value="" />*@
+                @*<input readonly type="text" name="nDat" id="iDat" value="" /><br />*@
                 <label>Cena racuna:</label><br />
                 <input class="form-control" readonly type="text" name="nCen" id="iCen" value="" />
             </div>
@@ -92,6 +99,8 @@
 </div>
 
 <script>
+    
+
     //funkcija za brisanje racuna
     function brisiRacun() {
         let id = document.getElementById('iId').value;
@@ -108,9 +117,10 @@
 
         })
         }
+        document.getElementById('prikazUspeha').removeAttribute('hidden');
     }
     //funkcija za prenos id racuna 
-    function funkcija2(id,cena) {
+    function funkcija2(id,cena,datum) {
         
         document.getElementById('iId').value = id;
         /*Datum ne zeli da radi mora da poravis*/

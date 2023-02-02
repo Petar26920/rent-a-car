@@ -22,5 +22,19 @@ namespace pokusajNecega3.Models.EFRepository
             baza.Dokumentacija.Add(dokumentacija);
             baza.SaveChanges();
         }
+
+        public bool NadjiDokumentacijuPoID(int id)
+        {
+            bool postoji = false;
+            foreach(Dokumentacija dokum in baza.Dokumentacija)
+            {
+                if(dokum.Idvozacke == id)
+                {
+                    postoji = true;
+                }
+            }
+
+            return postoji;
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace pokusajNecega3.Controllers
         public IActionResult Index()
         {
             ViewBag.SvaVozila = vozilo.NadjiSvaVozila();
-            return View();
+            return View(vozilo.NadjiSvaVozila());
         }
 
         public ActionResult NadjiSvaVozilaTogTipa(string tip)

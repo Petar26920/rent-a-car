@@ -14,6 +14,8 @@ namespace pokusajNecega3.Models.Interface
         IEnumerable<RacunBO> NadjiSveRacune();
         IEnumerable<RacunBO> NadjiRacunPoID(int id);
 
+        public bool PostojiRacunPoID(int id);
+
         public void KreirajRacun(RacunBO racunBo);
 
         public void Brisi(int id);

@@ -27,12 +27,26 @@ namespace pokusajNecega3.Controllers
             //dokumentacijaBO.DatumRodjenja = nRodj;
             //dokumentacijaBO.DatumIzdavanjaDozvole = nIzdavanje;
 
+            if(dokumentacija.NadjiDokumentacijuPoID(dokuemntacijaBO.Idvozacke))
+            {
+                ModelState.AddModelError("Idvozacke", "Vec postoji vozacka sa ovim brojem");
+            }
+
+            if(dokuemntacijaBO.Idvozacke<=0)
+            {
+                ModelState.AddModelError("Idvozacke", "Ne moze da bude manje od 0 ili prazno");
+            }
+
+            if(dokuemntacijaBO.DatumRodjenja == null)
+            {
+                ModelState.AddModelError("DatumRodjenja", "Popunite ovo polje");
+            }
+
             if (ModelState.IsValid)
             {
                 dokumentacija.Dodaj(dokuemntacijaBO);
-
-                //ViewBag.Uspeh = true;
-                return View("DodavanjeDokumentacije" /*ViewBag*/);
+                ViewBag.Uspeh = true;
+                return View("DodavanjeDokumentacije");
 
             }
 

@@ -9,5 +9,7 @@ namespace pokusajNecega3.Models.Interface
     interface IDokumentacijaRepository
     {
         public void Dodaj(DokuemntacijaBO dokumentacijaBO);
+
+        public bool NadjiDokumentacijuPoID(int id);
     }
 }

@@ -2,12 +2,22 @@
 
 
 <div class="container">
+    @if (ViewBag.Uspeh == true)
+     { ViewBag.Uspeh = false;
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Uspesno ste dodali racun!</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
     <h1>Index</h1>
     <div class="row">
         <div class="col-md-4">
 
             <label>Unesite ID racuna:</label>
-            <input class="input-group" type="text" name="nRac" id="iRac" placeholder="A-123" /> <br />
+            <input class="form-control" type="text" name="nRac" id="iRac" placeholder="A-123" /> <br />
             <input onclick="funkcija()" type="button" name="nTrazi" value="Pretrazi" class="btn btn-success" />
 
         </div>
@@ -85,7 +95,7 @@
     //funkcija za brisanje racuna
     function brisiRacun() {
         let id = document.getElementById('iId').value;
-        alert(id);
+
         if (id != null) {
             $.ajax({
             url: '@Url.Action("Brisi", "Racun")',
@@ -93,6 +103,7 @@
             success: function (result) {
                 $('#PrikazRacuna').html(result);
                 document.getElementById('PrikazRacuna').value = result
+                
             }
 
         })
@@ -109,13 +120,12 @@
     }
 
     function funkcija() {
-        alert(parseInt(document.getElementById('iRac').value));
+
         let idRacuna = parseInt(document.getElementById('iRac').value);
         let prolaz = true;
-        alert(typeof idRacuna);
         console.log(idRacuna);
         if (isNaN(idRacuna)) {
-            alert("Dobro je");
+
             prolaz = false;
         }
         $.ajax({

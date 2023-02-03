@@ -6,7 +6,7 @@
         <div>
             @Html.DropDownList(
             "VozilaPregled",
-            new SelectList(@ViewBag.SvaVozila, "Tip", "Tip"),
+            (new SelectList(@ViewBag.SvaVozila, "Tip", "Tip")),
             "Izaberi tip",
             new
                  {

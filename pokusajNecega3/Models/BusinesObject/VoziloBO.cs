@@ -12,5 +12,8 @@ namespace pokusajNecega3.Models.BusinesObject
         public bool Zauzeto { get; set; }
         public string Boja { get; set; }
         public string Model { get; set; }
+        public int vozniPark { get; set; }
+
+        public int Tezina { get; set; }
     }
 }

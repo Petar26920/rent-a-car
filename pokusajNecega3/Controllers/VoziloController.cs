@@ -20,7 +20,7 @@ namespace pokusajNecega3.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.SvaVozila = vozilo.NadjiSvaVozila();
+            ViewBag.Tipovi = vozilo.NadjiVozilaTogTipa();
             return View(vozilo.NadjiSvaVozila());
         }
 
@@ -55,7 +55,8 @@ namespace pokusajNecega3.Controllers
 
         public IActionResult Dodaj()
         {
-            ViewBag.Vozila = vozilo.NadjiSvaVozila();
+            ViewBag.Tip = vozilo.NadjiVozilaTogTipa();
+            //ViewBag.Vozila = vozilo.NadjiSvaVozila();
             return View();
         }
 

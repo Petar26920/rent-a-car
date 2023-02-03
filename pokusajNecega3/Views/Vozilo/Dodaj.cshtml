@@ -12,7 +12,7 @@
                 <label>Registracioni broj</label> <br />
                 <input type="text" class="form-control" name="nReg" id="iReg" /><br />
                 <label>Tip vozila:</label> <br />
-                @Html.DropDownList("TipVozila", new SelectList(@ViewBag.Vozila, "Tip", "Tip"),
+                @Html.DropDownList("TipVozila", new SelectList(@ViewBag.Tip),
             "Izaberi",
             new
             {

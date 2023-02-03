@@ -80,5 +80,21 @@ namespace pokusajNecega3.Models.EFRepository
 
             baza.SaveChanges();
         }
+
+        public IEnumerable<string> NadjiVozilaTogTipa()
+        {
+            List<string> listaTipova = new List<string>();
+            string trenutna;
+            foreach(Vozilo vozilo in baza.Vozilo)
+            {
+                trenutna = vozilo.Tip;
+                if(!listaTipova.Contains(trenutna))
+                {
+                    listaTipova.Add(trenutna);
+                }
+            }
+
+            return listaTipova;
+        }
     }
 }

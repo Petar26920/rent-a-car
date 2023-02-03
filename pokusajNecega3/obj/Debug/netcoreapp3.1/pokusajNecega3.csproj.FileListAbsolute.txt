@@ -390,4 +390,4 @@ C:\Users\Petar\source\repos\PPP\uptodate\pokusajNecega3\obj\Debug\netcoreapp3.1\
 C:\Users\Petar\source\repos\PPP\uptodate\pokusajNecega3\obj\Debug\netcoreapp3.1\pokusajNecega3.pdb
 C:\Users\Petar\source\repos\PPP\uptodate\pokusajNecega3\obj\Debug\netcoreapp3.1\pokusajNecega3.genruntimeconfig.cache
 C:\Users\Petar\source\repos\PPP\uptodate\pokusajNecega3\obj\Debug\netcoreapp3.1\Razor\Views\Vozilo\NadjiVoziloPoReg.cshtml.g.cs
-C:\Users\Petar\source\repos\PPP\uptodate\pokusajNecega3\obj\Debug\netcoreapp3.1\Razor\Views\Vozilo\NadjiSvaVozila.cshtml.g.cs
+C:\Users\Petar\source\repos\PPP\uptodate\pokusajNecega3\obj\Debug\netcoreapp3.1\Razor\Views\Vozilo\Dodaj.cshtml.g.cs

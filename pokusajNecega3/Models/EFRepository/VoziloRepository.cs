@@ -71,7 +71,10 @@ namespace pokusajNecega3.Models.EFRepository
             vozilo.RegistracioniBroj = voziloBo.RegistracioniBroj;
             vozilo.Tip = voziloBo.Tip;
             vozilo.Model = voziloBo.Model;
+            vozilo.Boja = voziloBo.Boja;
+            vozilo.Tezina = voziloBo.Tezina;
             vozilo.Zauzeto = voziloBo.Zauzeto;
+            vozilo.VozniParkFk = voziloBo.vozniPark;
 
             baza.Vozilo.Add(vozilo);
 

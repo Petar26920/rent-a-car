@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using pokusajNecega3.Models;
+using pokusajNecega3.Models.BusinesObject;
 using pokusajNecega3.Models.EFRepository;
 using System;
 using System.Collections.Generic;
@@ -52,16 +53,34 @@ namespace pokusajNecega3.Controllers
         }
 
 
-        [HttpPost]
-        public IActionResult DodajVozilo()
+        public IActionResult Dodaj()
         {
-            return PartialView(vozilo.NadjiSvaVozila());
+            ViewBag.Vozila = vozilo.NadjiSvaVozila();
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult DodajVozilo(string nReg, string TipVozila,string nMod,bool nZauz,string nBoj,int nTez,int nVozPar)
+        {
+            VoziloBO voziloBo = new VoziloBO();
+            voziloBo.RegistracioniBroj = nReg;
+            voziloBo.Tip = TipVozila;
+            voziloBo.Model = nMod;
+            voziloBo.Zauzeto = nZauz;
+            voziloBo.Boja = nBoj;
+            voziloBo.Tezina = nTez;
+            voziloBo.vozniPark = nVozPar;
+
+
+            vozilo.DodajVozilo(voziloBo);
+            return View("ListaVozila",vozilo.NadjiSvaVozila());
         }
 
 
-
-
-
+        public IActionResult Brisi()
+        {
+            return View();
+        }
 
     }
 }

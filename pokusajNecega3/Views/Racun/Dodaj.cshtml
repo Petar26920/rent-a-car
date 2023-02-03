@@ -1,16 +1,18 @@
-﻿@model IEnumerable<pokusajNecega3.Models.BusinesObject.VoziloBO>
+﻿@model pokusajNecega3.Models.BusinesObject.RacunBO
 @{
+
     ViewData["Title"] = "Dodaj";
 }
 
-<h1>Dodajte novi racun</h1>
+@*<h1>Dodajte novi racun</h1>
 <div class="container">
     <div class="row">
         <div class="col-md-5">
             @using (Html.BeginForm("DodajRacun", "Racun", FormMethod.Post))
             {
-                <label>ID-Racuna</label> <br />
-                <input type="text" class="form-control" name="nId" id="iId" /><br />
+                <label asp-for="RacunId">ID-Racuna</label> <br />
+                <input asp-for="RacunId" type="text" class="form-control" name="nId" id="iId" placeholder="Broj racuna"/>
+                <span asp-validation-for="RacunId" class="text-danger"></span> <br />
                 <label>Registracioni broj vozila:</label> <br />
                 @Html.DropDownList("VozilaPregled", new SelectList(@ViewBag.Vozila, "RegistracioniBroj", "RegistracioniBroj"),
             "Izaberi",
@@ -27,18 +29,73 @@
                     @class = "form-control",
                     @onchange = "provera(this.value)"
                 })<br />
-                <label>Cena:</label> <br />
-                <input type="number" id="iCen" name="nCen" class="form-control" /> <br />
-                <label>Broj dana:</label> <br />
-                <input type="number" id="iDan" name="nDan" class="form-control" /> <br />
-                <label>Datum</label> <br />
-                <input type="date" id="iDat" name="nDat" class="form-control" /> <br /> <br />
+                <label asp-for="Cena">Cena:</label> <br />
+                <input asp-for="Cena" type="number" id="iCen" name="nCen" class="form-control" /> 
+                <span asp-validation-for="Cena" class="text-danger"></span> <br />
+                <label asp-for="BrojDana">Broj dana:</label> <br />
+                <input asp-for="BrojDana" type="number" id="iDan" name="nDan" class="form-control" /> 
+                <span asp-validation-for="BrojDana"></span><br />
+                <label asp-for="Datum">Datum</label> <br />
+                <input asp-for="Datum" type="date" id="iDat" name="nDat" class="form-control" />
+                <span asp-validation-for="Datum" class="text-danger"></span><br />
                 <input type="submit" value="Kreiraj racun" class="btn btn-success" name="nSub" id="iSub" />
             }
         </div>
     </div>
 
+</div>*@
+
+
+<div class="container">
+    <div class="col-md-5">
+
+        <form asp-action="DodajRacun">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="RacunId" class="control-label">Unesite ID racuna:</label>
+                <input asp-for="RacunId" class="form-control" />
+                <span asp-validation-for="RacunId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DokumentacijaFk" class="control-label">Izaberite broj vozacke:</label>
+                <select class="form-control" asp-for="DokumentacijaFk"
+                        asp-items="@(new SelectList(ViewBag.Dokumentacija, "Idvozacke", "Idvozacke"))">
+                    <option disabled selected>Izaberite jedno</option>
+                </select>
+                <span asp-validation-for="DokumentacijaFk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VoziloFk" class="control-label">Izaberite registraciju vozila:</label>
+                <select class="form-control" asp-for="VoziloFk"
+                        asp-items="@(new SelectList(ViewBag.Vozila, "RegistracioniBroj", "RegistracioniBroj"))">
+                    <option disabled selected>Izaberite jedno</option>
+                </select>
+                <span asp-validation-for="VoziloFk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cena" class="control-label">Cena:</label>
+                <input asp-for="Cena" type="number" class="form-control" />
+                <span asp-validation-for="Cena" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BrojDana" class="control-label"></label>
+                <input asp-for="BrojDana" type="number" class="form-control" />
+                <span asp-validation-for="BrojDana" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Datum" class="control-label">Datum:</label>
+                <input asp-for="Datum" type="date" class="form-control" />
+                <span asp-validation-for="Datum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Dodaj" class="btn btn-success" />
+            </div>
+        </form>
+
+    </div>
+
 </div>
+
 <script>
     function provera(prov) {
         alert(prov);

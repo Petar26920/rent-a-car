@@ -19,7 +19,39 @@
 </div><br /><br />
 <div id="Vozila">
 
-    
+    <table class="table">
+        <tr>
+            <th>Registracioni broj</th>
+            <th>Tip</th>
+            <th>Boja</th>
+            <th>Zauzeto</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegistracioniBroj)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Boja)
+                </td>
+
+                <td>
+                    @if (item.Zauzeto == false)
+                    {
+                        <p>Nije zauzeto</p>
+                    }
+                    else
+                    {
+                        <p>Zauzeto je</p>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
 
 </div>
 <section>

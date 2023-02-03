@@ -105,5 +105,18 @@ namespace pokusajNecega3.Models.EFRepository
 
             return listaDokum;
         }
+
+        public bool PostojiRacunPoID(int id)
+        {
+            bool postoji = false;
+            foreach(Racun racun in baza.Racun)
+            {
+                if(racun.RacunId == id)
+                {
+                    postoji = true;
+                }
+            }
+            return postoji;
+        }
     }
 }

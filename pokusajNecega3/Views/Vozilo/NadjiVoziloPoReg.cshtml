@@ -88,10 +88,11 @@
             </div>
             <div class="modal-body">
                 <label>Registarski broj vozila:</label><br />
-                <input class="form-control" readonly type="text" name="nReg" id="iReg" value="" /><br />
+                @*<input class="form-control" readonly type="text" name="nReg" id="iReg" value=""/><br />*@
+                <input class="form-control" readonly type="text" id="iRegistracija" name="name" value="" />
                
                 <label>Model:</label><br />
-                <input class="form-control" readonly type="text" name="nMod" id="iMod" value="" />
+                <input class="form-control" readonly type="text" name="nMod" id="iMod" value=""/>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Zatvori</button>
@@ -128,16 +129,18 @@ function funkcija() {
 
     //NE PROSLEDJUJE DOBRO PROMENLJIVe
     function funkcija2(reg,mod) {
-        
-     parseInt(document.getElementById('iReg').value) = reg;
-    model = document.getElementById('iMod').value = mod;
+        alert(reg);
+        alert(mod);
+        document.getElementById('iRegistracija').value = reg;
+        document.getElementsByName('nReg').value = reg;
+        document.getElementById('iMod').value = mod;
 
     }
 
 
         //funkcija za brisanje vozila
     function brisiVozilo() {
-        let reg = document.getElementById('iReg').value;
+        let reg = document.getElementById('iRegistracija').value;
         let mod = document.getElementById('iMod').value;
         if (reg != null) {
             $.ajax({

@@ -4,7 +4,7 @@
     <table class="table">
         <tr>
             <th>Registracioni broj</th>
-            <th>Tip</th>
+            <th>Model</th>
             <th>Boja</th>
             <th>Zauzeto</th>
             <th>Brisanje</th>
@@ -33,8 +33,21 @@
             }
         </td>
         <td>
-            <button onclick="funkcija2( @item.RegistracioniBroj , @item.Model)" type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger">Obrisi</button>
+            <input hidden readonly type="text" id="iRegZaFunk" name="name" value="@item.RegistracioniBroj" />
+            <input hidden readonly type="text" id="iModZaFunk" value="@item.Model" />
+            <button onclick="funkcija3()" type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger">Obrisi</button>
         </td>
     </tr>
             }
     </table>
+
+    <script>
+        function funkcija3() {
+            alert('Radi');
+            let reg = document.getElementById('iRegZaFunk').value;
+            let mod = document.getElementById('iModZaFunk').value;
+            alert(reg);
+            alert(mod);
+            funkcija2(reg, mod);
+        }
+    </script>

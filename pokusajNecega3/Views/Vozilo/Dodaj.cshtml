@@ -1,45 +1,51 @@
-﻿@model IEnumerable<pokusajNecega3.Models.BusinesObject.VoziloBO>
+﻿@*@model IEnumerable<pokusajNecega3.Models.BusinesObject.VoziloBO>*@
+@model pokusajNecega3.Models.BusinesObject.VoziloBO
 @{
     ViewData["Title"] = "Dodaj";
 }
 
 <h1>Dodajte novo vozilo</h1>
+
 <div class="container">
     <div class="row">
         <div class="col-md-5">
-            @using (Html.BeginForm("DodajVozilo", "Vozilo", FormMethod.Post))
-            {
-                <label>Registracioni broj</label> <br />
-                <input type="text" class="form-control" name="nReg" id="iReg" /><br />
-                <label>Tip vozila:</label> <br />
-                @Html.DropDownList("TipVozila", new SelectList(@ViewBag.Tip),
-            "Izaberi",
-            new
-            {
-                @class = "form-control",
-                //@onchange = "OnSelectedVozilo(this.value)"
-            })<br />
-                <label>Model:</label><br />
-                <input type="text" class="form-control" name="nMod" id="iMod" /><br />
-                <label>Boja:</label><br />
-                <input type="text" class="form-control" name="nBoj" id="iBoj" /><br />
-                <br />
-                <label>Tezina:</label><br />
-                <input type="number" class="form-control" name="nTez" id="iTez" /><br />
-                <label>Vozni park:</label><br />
-                <input type="text" class="form-control" name="nVozPar" id="iVozPar" /><br />
-                <label>Zauzeto:</label> <br />
-                <input type="checkbox" id="iZauz" name="nZauz" class="form-control" /> <br /><br />
+            <div class="col-md-5">
+       
+
+                        @using (Html.BeginForm("DodajVozilo", "Vozilo", FormMethod.Post))
+                        {
+                            <label>Registracioni broj</label> <br />
+                            <input type="text" class="form-control" name="nReg" id="iReg" /><br />
+                            <label>Tip vozila:</label> <br />
+                            @Html.DropDownList("TipVozila", new SelectList(@ViewBag.Tip),
+                        "Izaberi",
+                        new
+                        {
+                            @class = "form-control",
+                            //@onchange = "OnSelectedVozilo(this.value)"
+                        })<br />
+                            <label>Model:</label><br />
+                            <input type="text" class="form-control" name="nMod" id="iMod" /><br />
+                            <label>Boja:</label><br />
+                            <input type="text" class="form-control" name="nBoj" id="iBoj" /><br />
+                            <br />
+                            <label>Tezina:</label><br />
+                            <input type="number" class="form-control" name="nTez" id="iTez" /><br />
+                            <label>Vozni park:</label><br />
+                            <input type="text" class="form-control" name="nVozPar" id="iVozPar" /><br />
+                            <label>Zauzeto:</label> <br />
+                            <input type="checkbox" id="iZauz" name="nZauz" class="form-control" /> <br /><br />
 
 
-                <input type="submit" value="Kreiraj racun" class="btn btn-success" name="nSub" id="iSub" />
-            }
-        </div>
+                            <input type="submit" value="Kreiraj racun" class="btn btn-success" name="nSub" id="iSub" />
+                        }
+             </div>
+         </div>
     </div>
 
 </div>
-<script>
-    function provera(prov) {
-        alert(prov);
-    }
-</script>
+        <script>
+            function provera(prov) {
+                alert(prov);
+            }
+        </script>

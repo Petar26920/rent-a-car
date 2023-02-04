@@ -1,16 +1,35 @@
 ﻿
 @model IEnumerable<pokusajNecega3.Models.BusinesObject.VoziloBO>
-    @{
-        Layout = "_Layout";
+@{
+    Layout = "_Layout";
+}
+
+
+@{
+    ViewData["Title"] = "NadjiVoziloPoReg";
+}
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" />
+<div class="container">
+    @if (ViewBag.Uspeh == true)
+    {
+        ViewBag.Uspeh = false;
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Uspesno ste dodali vozilo!</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
     }
 
-
-    @{
-        ViewData["Title"] = "NadjiVoziloPoReg";
-    }
-
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <div hidden id="prikazUspeha" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Uspesno ste obrisali vozilo!</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <h1>Pretraga vozila</h1>
     <div class="row">
         <div class="col-md-4">
             <label>Pretraga vozila</label>
@@ -22,55 +41,83 @@
         </div>
 
     </div>
-    <br />
-    <br />
-    <div id="Vozila">
-        <table class="table">
+</div>
+<br />
+
+
+
+<br />
+<br />
+<div id="Vozila">
+    <table class="table">
+        <tr>
+            <th>Registracioni broj</th>
+            <th>Model</th>
+            <th>Tip</th>
+            <th><th>
+        </tr>
+        @foreach (var item in Model)
+        {
             <tr>
-                <th>Registracioni broj</th>
-                <th>Model</th>
-                <th>Tip</th>
+                <td>
+                    @Html.DisplayFor(Model => item.RegistracioniBroj)
+                </td>
+                <td>
+                    @Html.DisplayFor(Model => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(Model => item.Tip)
+                </td>
+                
             </tr>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(Model => item.RegistracioniBroj)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(Model => item.Model)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(Model => item.Tip)
-                    </td>
-
-                </tr>
-            }
-        </table>
+        }
+    </table>
 
 
+</div>
+
+<!-- Modal za brisanje -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Da li ste sigurni da zelite da izbrisete izabrano vozilo?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label>Registarski broj vozila:</label><br />
+                <input class="form-control" readonly type="text" name="nReg" id="iReg" value="" /><br />
+               
+                <label>Model:</label><br />
+                <input class="form-control" readonly type="text" name="nMod" id="iMod" value="" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Zatvori</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="brisiVozilo()">Izbrisi</button>
+            </div>
+        </div>
     </div>
+</div>
 
 
+@*RADIIIIII++*@@*RADIIIIII++*@@*RADIIIIII++*@@*RADIIIIII++*@@*RADIIIIII++*@@*RADIIIIII++*@@*RADIIIIII++*@@*RADIIIIII++*@@*RADIIIIII++*@@*RADIIIIII++*@@*RADIIIIII++*@
 
 
-    @*RADIIIIII++*@@*RADIIIIII++*@@*RADIIIIII++*@@*RADIIIIII++*@@*RADIIIIII++*@@*RADIIIIII++*@@*RADIIIIII++*@@*RADIIIIII++*@@*RADIIIIII++*@@*RADIIIIII++*@@*RADIIIIII++*@
-
-
-    <script>
+<script>
 function funkcija() {
-        alert(parseInt(document.getElementById('iReg').value));
-        let reg = parseInt(document.getElementById('iReg').value);
+    let reg = parseInt(document.getElementById('iReg').value);
+    let model = document.getElementById('iMod').value;
         let prolaz = true;
-        alert(typeof reg);
         console.log(reg);
         if (isNaN(reg)) {
             alert("Upisite dobro registracioni broj");
             prolaz = false;
         }
         $.ajax({
-            url: '@Url.Action("NadjiVoziloPoReg", "Vozilo")',
-            data: { reg: reg,iProlaz:prolaz },
+            url: '@Url.Action("ListaVozila", "Vozilo")',
+            data: { reg: reg,iProlaz:prolaz,model: model},
             success: function (result) {
             $('#Vozila').html(result);
             document.getElementById('Vozila').value = result
@@ -79,4 +126,31 @@ function funkcija() {
             })
     }
 
-    </script>
+    //NE PROSLEDJUJE DOBRO PROMENLJIVe
+    function funkcija2(reg,mod) {
+        
+     parseInt(document.getElementById('iReg').value) = reg;
+    model = document.getElementById('iMod').value = mod;
+
+    }
+
+
+        //funkcija za brisanje vozila
+    function brisiVozilo() {
+        let reg = document.getElementById('iReg').value;
+        let mod = document.getElementById('iMod').value;
+        if (reg != null) {
+            $.ajax({
+            url: '@Url.Action("Brisi", "Vozilo")',
+            data: { reg: reg,model: mod},
+            success: function (result) {
+                $('#Vozila').html(result);
+                document.getElementById('Vozila').value = result
+
+            }
+
+        })
+        }
+        document.getElementById('prikazUspeha').removeAttribute('hidden');
+    }
+</script>

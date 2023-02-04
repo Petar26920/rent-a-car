@@ -7,30 +7,34 @@
             <th>Tip</th>
             <th>Boja</th>
             <th>Zauzeto</th>
+            <th>Brisanje</th>
         </tr>
         @foreach(var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.RegistracioniBroj)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Model)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Boja)
-                    </td>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegistracioniBroj)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Boja)
+        </td>
 
-                    <td>
-                        @if(item.Zauzeto == false)
-                        {
-                            <p>Nije zauzeto</p>
-                        }
-                        else
-                        {
-                            <p>Zauzeto je</p>
-                        }
-                    </td>
-                </tr>
+        <td>
+            @if (item.Zauzeto == false)
+            {
+                <p>Nije zauzeto</p>
+            }
+            else
+            {
+                <p>Zauzeto je</p>
+            }
+        </td>
+        <td>
+            <button onclick="funkcija2( @item.RegistracioniBroj , @item.Model)" type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger">Obrisi</button>
+        </td>
+    </tr>
             }
     </table>

@@ -13,7 +13,11 @@ namespace pokusajNecega3.Models.Interface
         IEnumerable<VoziloBO> NadjiSvaVozilaTogTipa(string tip);
 
         IEnumerable<String> NadjiVozilaTogTipa();
+        public void KreirajVozilo(VoziloBO voziloBo);
         public void DodajVozilo(VoziloBO voziloBo);
+        public bool PostojiVoziloPoReg(string reg);
+
+        public void Brisi(string reg);
 
     }
 }

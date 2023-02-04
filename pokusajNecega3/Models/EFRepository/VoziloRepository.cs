@@ -47,6 +47,22 @@ namespace pokusajNecega3.Models.EFRepository
             return listaVozila;
         }
 
+        internal object ListaVozila(string reg)
+        {
+            List<VoziloBO> listavozila = new List<VoziloBO>();
+            foreach (Vozilo vozilo in baza.Vozilo.Where(t => t.RegistracioniBroj == reg))
+            {
+                VoziloBO voziloBo = new VoziloBO();
+                voziloBo.RegistracioniBroj = vozilo.RegistracioniBroj;
+                voziloBo.Model = vozilo.Model;
+                voziloBo.Tip = vozilo.Tip;
+                voziloBo.Boja = vozilo.Boja;
+                voziloBo.Zauzeto = vozilo.Zauzeto;
+                listavozila.Add(voziloBo);
+            }
+            return listavozila;
+        }
+
         public IEnumerable<VoziloBO> NadjiSvaVozilaTogTipa(string tip)
         {
             List<VoziloBO> listaVozila = new List<VoziloBO>();
@@ -95,6 +111,44 @@ namespace pokusajNecega3.Models.EFRepository
             }
 
             return listaTipova;
+        }
+
+        public void KreirajVozilo(VoziloBO voziloBo)
+        {
+            Vozilo vozilo = new Vozilo();
+            vozilo.RegistracioniBroj = voziloBo.RegistracioniBroj;
+            vozilo.Model = voziloBo.Model;
+            vozilo.Tip = voziloBo.Tip;
+            vozilo.VozniParkFk = voziloBo.vozniPark;
+            vozilo.Boja = voziloBo.Boja;
+            vozilo.Zauzeto = voziloBo.Zauzeto;
+
+            baza.Vozilo.Add(vozilo);
+
+            baza.SaveChanges();
+        }
+
+
+
+        public void Brisi(string reg)
+        {
+            Vozilo vozilo = baza.Vozilo.Single(t => t.RegistracioniBroj == reg);
+            baza.Vozilo.Remove(vozilo);
+
+            baza.SaveChanges();
+        }
+
+        public bool PostojiVoziloPoReg(string reg)
+        {
+            bool postoji = false;
+            foreach (Vozilo vozilo in baza.Vozilo)
+            {
+                if (vozilo.RegistracioniBroj == reg)
+                {
+                    postoji = true;
+                }
+            }
+            return postoji;
         }
     }
 }

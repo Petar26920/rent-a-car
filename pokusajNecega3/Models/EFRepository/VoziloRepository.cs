@@ -21,7 +21,10 @@ namespace pokusajNecega3.Models.EFRepository
                     voziloBo.RegistracioniBroj = vozilo.RegistracioniBroj;
                     voziloBo.Tip = vozilo.Tip;
                     voziloBo.Model = vozilo.Model;
+                    voziloBo.Boja = vozilo.Boja;
+                    voziloBo.Tezina = (int)vozilo.Tezina;
                     voziloBo.Zauzeto = vozilo.Zauzeto;
+                    voziloBo.vozniPark = vozilo.VozniParkFk;
                     listaVozila.Add(voziloBo);
                 }
                 return listaVozila; 
@@ -100,17 +103,26 @@ namespace pokusajNecega3.Models.EFRepository
         public void AzurirajVozilo(VoziloBO voziloBo)
         {
             Vozilo vozilo = new Vozilo();
-            vozilo.RegistracioniBroj = voziloBo.RegistracioniBroj;
-            vozilo.Tip = voziloBo.Tip;
-            vozilo.Model = voziloBo.Model;
-            vozilo.Boja = voziloBo.Boja;
-            vozilo.Tezina = voziloBo.Tezina;
-            vozilo.Zauzeto = voziloBo.Zauzeto;
-            vozilo.VozniParkFk = voziloBo.vozniPark;
+            foreach(Vozilo voz in baza.Vozilo.Where(t=>t.RegistracioniBroj == voziloBo.RegistracioniBroj))
+            {
+                voz.Boja = voziloBo.Boja;
+                voz.Model = voziloBo.Model;
+                voz.Tezina = voziloBo.Tezina;
+                voz.Tip = voziloBo.Tip;
+                voz.Zauzeto = voziloBo.Zauzeto;
+                voz.VozniParkFk = voziloBo.vozniPark;
+            }
+            //vozilo.RegistracioniBroj = voziloBo.RegistracioniBroj;
+            //vozilo.Tip = voziloBo.Tip;
+            //vozilo.Model = voziloBo.Model;
+            //vozilo.Boja = voziloBo.Boja;
+            //vozilo.Tezina = voziloBo.Tezina;
+            //vozilo.Zauzeto = voziloBo.Zauzeto;
+            //vozilo.VozniParkFk = voziloBo.vozniPark;
 
-            baza.Vozilo.Update(vozilo);
 
             baza.SaveChanges();
+
         }
 
         public IEnumerable<string> NadjiVozilaTogTipa()

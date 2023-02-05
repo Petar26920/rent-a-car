@@ -6,6 +6,16 @@
 
 <h1>Dodajte novo vozilo</h1>
 
+@if (ViewBag.uspeh == true)
+{
+    <div id="uspeh" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Uspesno ste azurirali vozilo!</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
 <div class="container">
     <div class="row">
         <div class="col-md-5">
@@ -20,46 +30,50 @@
                 new
                 {
                     @class = "form-control",
-                    //@onchange = "OnSelectedVozilo(this.value)"
+                    @onchange = "OnSelectedReg(this.value)"
                 })
-                    <label>Tip vozila:</label> <br />
-                    @Html.DropDownList("TipVozila", new SelectList(@ViewBag.Tip),
-                "Izaberi",
-                new
-                {
-                    @class = "form-control",
-                    //@onchange = "OnSelectedVozilo(this.value)"
-                })<br />
-                    <label>Model:</label><br />
-                    <input type="text" class="form-control" name="nMod" id="iMod" /><br />
-                    <label>Boja:</label><br />
-                    <input type="text" class="form-control" name="nBoj" id="iBoj" /><br />
+                    <div id="ostatakPrikaza">
+
+                    </div>
                     <br />
-                    <label>Tezina:</label><br />
-                    <input type="number" class="form-control" name="nTez" id="iTez" /><br />
-                    <label>Vozni park:</label><br />
-                    <input type="text" class="form-control" name="nVozPar" id="iVozPar" /><br />
-                    <label>Zauzeto:</label> <br />
-                    <input type="checkbox" id="iZauz" name="nZauz" class="form-control" onclick="zauzet()" /> <br /><br />
 
                     //ODRADITI ZAUZETOST
 
-
-
-
-                    <input type="submit" value="Kreiraj racun" class="btn btn-success" name="nSub" id="iSub" />
+                    <input type="submit" value="Azuriraj vozilo" class="btn btn-success" name="nSub" id="iSub" />
                 }
             </div>
         </div>
     </div>
 
 </div>
-<script>
-            function provera(prov) {
-                alert(prov);
-            }
-            function zauzet() {
+<script type="text/javascript">
+    function zauzeto() {
+        if (document.getElementById('iZauz').checked) {
+            document.getElementById('iZauz').value = 1;
+        }
+        else {
+            document.getElementById('iZauz').value = 0;
+        }
+    }
 
+    function OnSelectedReg(reg) {
+        $.ajax({
+            url: '@Url.Action("NadjiVoziloZaAzuriranje", "Vozilo")',
+            data: { reg: reg },
+          success:   function(result) {
+              $('#ostatakPrikaza').html(result);
+              document.getElementById('ostatakPrikaza').value = result;
             }
-
+        });
+    }
 </script>
+
+@*<script>
+                function provera(prov) {
+                    alert(prov);
+                }
+                function zauzet() {
+
+                }
+
+    </script>*@

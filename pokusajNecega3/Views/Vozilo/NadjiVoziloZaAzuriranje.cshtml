@@ -1,0 +1,51 @@
+﻿@model IEnumerable<pokusajNecega3.Models.BusinesObject.VoziloBO>
+
+
+
+@foreach (var voz in Model)
+{
+        string boja = voz.Boja;
+  
+    <label>Tip vozila:</label>
+    <br />
+    @*<input type="text" class="form-control" name="nTip" id="iTip" value="@voz.Tip" />*@
+    @Html.DropDownList("TipVozila", new SelectList(@ViewBag.Tip, voz.Tip),
+                "Izaberi",
+                new
+                {
+                    @class = "form-control",
+                })
+    <br />
+    <label>Model:</label>
+    <br />
+    <input type="text" class="form-control" name="nMod" id="iMod" value="@voz.Model" />
+    <br />
+    <label>Boja:</label>
+    <br />
+    <input type="text" class="form-control" name="nBoj" id="iBoj" value="Crvena" />
+    <br />
+    <label>Tezina:</label>
+    <br />
+    <input type="number" class="form-control" name="nTez" id="iTez" value="@voz.Tezina" />
+    <br />
+    <label>Vozni park:</label>
+    <br />
+    <input type="number" min="1" max="5" class="form-control" name="nVozPar" id="iVozPar" value="@voz.vozniPark" />
+    <br />
+    <label>Zauzeto:</label>
+    <br />
+    @if (voz.Zauzeto)
+    {
+
+        <input type="checkbox" id="iZauz" onchange="zauzeto()" name="nZauz" class="form-control" checked value="true"/>
+
+    }
+    else
+    {
+
+        <input type="checkbox" id="iZauz" name="nZauz" onchange="zauzeto()" class="form-control" value="false"/>
+
+    }
+    <br />
+
+}

@@ -172,14 +172,35 @@ namespace pokusajNecega3.Controllers
         public IActionResult Azuriraj()
         {
             ViewBag.Tip = vozilo.NadjiVozilaTogTipa();
-            //ViewBag.Vozila = vozilo.NadjiSvaVozila();
             ViewBag.Reg = vozilo.NadjiSveReg();
+            ViewBag.uspeh = false;
             return View();
         }
 
-        public IActionResult AzurirajVozilo(VoziloBO voziloBo)
+        public IActionResult NadjiVoziloZaAzuriranje(string reg)
         {
-            return View();
+            ViewBag.Tip = vozilo.NadjiVozilaTogTipa();
+            return PartialView(vozilo.NadjiVoziloPoReg(reg));
+        }
+
+        [HttpPost]
+        public IActionResult AzurirajVozilo(string RegistracioniBroj, string TipVozila, string nMod, string nBoj, double nTez, int nVozPar, int nZauz)
+        {
+            VoziloBO voziloBO = new VoziloBO();
+            voziloBO.RegistracioniBroj = RegistracioniBroj;
+            voziloBO.Tip = TipVozila;
+            voziloBO.Model = nMod;
+            voziloBO.Boja = nBoj;
+            voziloBO.Tezina = nTez;
+            voziloBO.vozniPark = nVozPar;
+            voziloBO.Zauzeto = (nZauz == 1) ? true : false;
+
+            vozilo.AzurirajVozilo(voziloBO);
+
+            ViewBag.Tip = vozilo.NadjiVozilaTogTipa();
+            ViewBag.Reg = vozilo.NadjiSveReg();
+            ViewBag.uspeh = true;
+            return View("Azuriraj");
         }
     }
 }

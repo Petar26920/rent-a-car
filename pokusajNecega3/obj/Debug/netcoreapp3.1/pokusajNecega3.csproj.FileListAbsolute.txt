@@ -398,3 +398,9 @@ C:\Users\Petar\source\repos\PPP\uptodate\pokusajNecega3\obj\Debug\netcoreapp3.1\
 C:\Users\Petar\source\repos\PPP\uptodate\pokusajNecega3\obj\Debug\netcoreapp3.1\Razor\Views\Vozilo\ListaVozilaRadnik.cshtml.g.cs
 C:\Users\Petar\source\repos\PPP\uptodate\pokusajNecega3\obj\Debug\netcoreapp3.1\Razor\Views\Vozilo\NadjiVoziloPoRegRadnik.cshtml.g.cs
 C:\Users\Petar\source\repos\PPP\uptodate\pokusajNecega3\obj\Debug\netcoreapp3.1\Razor\Views\Vozilo\Azuriraj.cshtml.g.cs
+D:\Projekat za ppp\PPP\pokusajNecega3\obj\Debug\netcoreapp3.1\Razor\Views\Vozilo\Azuriraj.cshtml.g.cs
+D:\Projekat za ppp\PPP\pokusajNecega3\obj\Debug\netcoreapp3.1\Razor\Views\Vozilo\ListaVozilaRadnik.cshtml.g.cs
+D:\Projekat za ppp\PPP\pokusajNecega3\obj\Debug\netcoreapp3.1\Razor\Views\Vozilo\NadjiSvaVozilaRadnik.cshtml.g.cs
+D:\Projekat za ppp\PPP\pokusajNecega3\obj\Debug\netcoreapp3.1\Razor\Views\Vozilo\NadjiVoziloPoRegRadnik.cshtml.g.cs
+D:\Projekat za ppp\PPP\pokusajNecega3\obj\Debug\netcoreapp3.1\Razor\Views\Vozilo\NadjiVoziloZaAzuriranje.cshtml.g.cs
+C:\Users\Petar\source\repos\PPP\uptodate\pokusajNecega3\obj\Debug\netcoreapp3.1\Razor\Views\Vozilo\NadjiVoziloZaAzuriranje.cshtml.g.cs

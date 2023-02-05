@@ -29,6 +29,6 @@ namespace pokusajNecega3.Models.BusinesObject
 
         [Required(ErrorMessage = "Morate da unesete tezinu")]
         [RegularExpression("[0-9]+", ErrorMessage = "Samo brojevi su priznati")]
-        public int Tezina { get; set; }
+        public double Tezina { get; set; }
     }
 }

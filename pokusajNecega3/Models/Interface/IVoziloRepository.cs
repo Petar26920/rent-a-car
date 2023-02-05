@@ -18,6 +18,11 @@ namespace pokusajNecega3.Models.Interface
         public bool PostojiVoziloPoReg(string reg);
 
         public void Brisi(string reg);
+        //Radnik
+        public IEnumerable<VoziloBO> NadjiVoziloPoRegRadnik(string reg);
+
+
+
 
     }
 }

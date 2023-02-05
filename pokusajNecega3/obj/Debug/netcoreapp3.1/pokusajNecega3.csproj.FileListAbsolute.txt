@@ -394,3 +394,6 @@ C:\Users\Petar\source\repos\PPP\uptodate\pokusajNecega3\obj\Debug\netcoreapp3.1\
 D:\Projekat za ppp\PPP\pokusajNecega3\bin\Debug\netcoreapp3.1\pokusajNecega3.StaticWebAssets.xml
 D:\Projekat za ppp\PPP\pokusajNecega3\obj\Debug\netcoreapp3.1\Razor\Views\Vozilo\Dodaj.cshtml.g.cs
 D:\Projekat za ppp\PPP\pokusajNecega3\obj\Debug\netcoreapp3.1\Razor\Views\Vozilo\NadjiVoziloPoReg.cshtml.g.cs
+C:\Users\Petar\source\repos\PPP\uptodate\pokusajNecega3\obj\Debug\netcoreapp3.1\Razor\Views\Vozilo\NadjiSvaVozilaRadnik.cshtml.g.cs
+C:\Users\Petar\source\repos\PPP\uptodate\pokusajNecega3\obj\Debug\netcoreapp3.1\Razor\Views\Vozilo\ListaVozilaRadnik.cshtml.g.cs
+C:\Users\Petar\source\repos\PPP\uptodate\pokusajNecega3\obj\Debug\netcoreapp3.1\Razor\Views\Vozilo\NadjiVoziloPoRegRadnik.cshtml.g.cs

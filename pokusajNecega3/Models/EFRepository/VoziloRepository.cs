@@ -138,6 +138,25 @@ namespace pokusajNecega3.Models.EFRepository
             baza.SaveChanges();
         }
 
+
+        //ZA RADNIKA
+        public IEnumerable<VoziloBO> NadjiSvaVozilaRadnik(string reg)
+        {
+            List<VoziloBO> listaVozila = new List<VoziloBO>();
+            foreach (Vozilo vozilo in baza.Vozilo.Where(t => t.RegistracioniBroj == reg))
+            {
+                VoziloBO voziloBo = new VoziloBO();
+                voziloBo.RegistracioniBroj = vozilo.RegistracioniBroj;
+                voziloBo.Tip = vozilo.Tip;
+                voziloBo.Model = vozilo.Model;
+                voziloBo.Zauzeto = vozilo.Zauzeto;
+                listaVozila.Add(voziloBo);
+            }
+            return listaVozila;
+        }
+
+        
+
         public bool PostojiVoziloPoReg(string reg)
         {
             bool postoji = false;
@@ -150,5 +169,43 @@ namespace pokusajNecega3.Models.EFRepository
             }
             return postoji;
         }
+
+
+
+        //KORISNIK
+
+        internal object ListaVozilaRadnik(string reg)
+        {
+            List<VoziloBO> listavozilaradnik = new List<VoziloBO>();
+            foreach (Vozilo vozilo in baza.Vozilo.Where(t => t.RegistracioniBroj == reg))
+            {
+                VoziloBO voziloBo = new VoziloBO();
+                voziloBo.RegistracioniBroj = vozilo.RegistracioniBroj;
+                voziloBo.Model = vozilo.Model;
+                voziloBo.Tip = vozilo.Tip;
+                voziloBo.Boja = vozilo.Boja;
+                voziloBo.Zauzeto = vozilo.Zauzeto;
+                listavozilaradnik.Add(voziloBo);
+            }
+            return listavozilaradnik;
+        }
+        public IEnumerable<VoziloBO> NadjiVoziloPoRegRadnik(string reg)
+        {
+            List<VoziloBO> listaVozila = new List<VoziloBO>();
+            foreach (Vozilo vozilo in baza.Vozilo.Where(t => t.RegistracioniBroj == reg))
+            {
+                VoziloBO voziloBo = new VoziloBO();
+                voziloBo.RegistracioniBroj = vozilo.RegistracioniBroj;
+                voziloBo.Tip = vozilo.Tip;
+                voziloBo.Model = vozilo.Model;
+                voziloBo.Zauzeto = vozilo.Zauzeto;
+                listaVozila.Add(voziloBo);
+            }
+            return listaVozila;
+        }
+
+
+
+
     }
 }

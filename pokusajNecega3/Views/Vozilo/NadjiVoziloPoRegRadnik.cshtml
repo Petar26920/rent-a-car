@@ -67,7 +67,7 @@
                 <td>
                     @Html.DisplayFor(Model => item.Tip)
                 </td>
-                
+
             </tr>
         }
     </table>
@@ -89,9 +89,9 @@
                 <label>Registarski broj vozila:</label><br />
                 @*<input class="form-control" readonly type="text" name="nReg" id="iReg" value=""/><br />*@
                 <input class="form-control" readonly type="text" id="iRegistracija" name="name" value="" />
-               
+
                 <label>Model:</label><br />
-                <input class="form-control" readonly type="text" name="nMod" id="iMod" value=""/>
+                <input class="form-control" readonly type="text" name="nMod" id="iMod" value="" />
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Zatvori</button>
@@ -116,43 +116,13 @@ function funkcija() {
             prolaz = false;
         }
         $.ajax({
-            url: '@Url.Action("ListaVozila", "Vozilo")',
-            data: { reg: reg,iProlaz:prolaz,model: model},
+            url: '@Url.Action("ListaVozilaRadnik", "Vozilo")',
+            data: { reg: reg,iProlaz:prolaz},
             success: function (result) {
             $('#Vozila').html(result);
             document.getElementById('Vozila').value = result
             }
 
             })
-    }
-
-    //NE PROSLEDJUJE DOBRO PROMENLJIVe
-    function funkcija2(reg,mod) {
-        alert(reg);
-        alert(mod);
-        document.getElementById('iRegistracija').value = reg;
-        document.getElementsByName('nReg').value = reg;
-        document.getElementById('iMod').value = mod;
-
-    }
-
-
-        //funkcija za brisanje vozila
-    function brisiVozilo() {
-        let reg = document.getElementById('iRegistracija').value;
-        let mod = document.getElementById('iMod').value;
-        if (reg != null) {
-            $.ajax({
-            url: '@Url.Action("Brisi", "Vozilo")',
-            data: { reg: reg,model: mod},
-            success: function (result) {
-                $('#Vozila').html(result);
-                document.getElementById('Vozila').value = result
-
-            }
-
-        })
-        }
-        document.getElementById('prikazUspeha').removeAttribute('hidden');
     }
 </script>

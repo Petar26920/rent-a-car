@@ -47,9 +47,6 @@ namespace pokusajNecega3.Controllers
         }
 
 
-
-
-
         public IActionResult NadjiVoziloPoReg(string reg, bool iProlaz)
         {
             if (iProlaz == true)
@@ -143,5 +140,43 @@ namespace pokusajNecega3.Controllers
             return PartialView("ListaVozila", vozilo.NadjiSvaVozila());
         }
 
+
+
+        //Za radnika
+        ///////////////////////////////////////////////////////
+
+        public IActionResult NadjiVoziloPoRegRadnik(string reg, bool iProlaz)
+        {
+            if (iProlaz == true)
+            {
+                return PartialView(vozilo.NadjiVoziloPoRegRadnik(reg));
+            }
+            else
+            {
+                return PartialView(vozilo.NadjiSvaVozila());
+            }
+
+        }
+
+        public IActionResult ListaVozilaRadnik(string reg, bool iProlaz)
+        {
+            if (iProlaz != false)
+            {
+                return PartialView(vozilo.ListaVozilaRadnik(reg));
+            }
+            else
+            {
+                return PartialView(vozilo.NadjiSvaVozila());
+            }
+        }
+
+
+        //AZURIRANJE
+        /////////////////////////////////////////////////////
+        
+        public IActionResult AzurirajVozilo(string reg)
+        {
+            return View();
+        }
     }
 }

@@ -14,6 +14,7 @@ namespace pokusajNecega3.Models.Interface
 
         IEnumerable<String> NadjiVozilaTogTipa();
         public IEnumerable<string> NadjiSveReg();
+        public IEnumerable<string> NadjiSveTipove();
         public void KreirajVozilo(VoziloBO voziloBo);
         public void DodajVozilo(VoziloBO voziloBo);
         public void AzurirajVozilo(VoziloBO voziloBo);

@@ -28,9 +28,9 @@ namespace pokusajNecega3.Controllers
         {
             if(tip != "prazno")
             {
-                return PartialView("ListaVozila", vozilo.NadjiSvaVozilaTogTipa(tip));
+                return PartialView("ListaVozilaRadnik", vozilo.NadjiSvaVozilaTogTipa(tip));
             }
-            return PartialView("ListaVozila", vozilo.NadjiSvaVozila());
+            return PartialView("ListaVozilaRadnik", vozilo.NadjiSvaVozila());
         }
 
         public IActionResult ListaVozila(string reg, bool iProlaz)
@@ -63,32 +63,44 @@ namespace pokusajNecega3.Controllers
 
         public IActionResult Dodaj()
         {
-            ViewBag.Tip = vozilo.NadjiVozilaTogTipa();
-            //ViewBag.Vozila = vozilo.NadjiSvaVozila();
+            ViewBag.Tip = vozilo.NadjiSveTipove();
             return View();
         }
 
 
 
+        
+
+
+
+        //[HttpPost]
+        //public IActionResult DodajVozilo(string nReg, string TipVozila, string nMod, bool nZauz, string nBoj, int nTez, int nVozPar)
+        //{
+        //    VoziloBO voziloBo = new VoziloBO();
+        //    voziloBo.RegistracioniBroj = nReg;
+        //    voziloBo.Tip = TipVozila;
+        //    voziloBo.Model = nMod;
+        //    voziloBo.Zauzeto = nZauz;
+        //    voziloBo.Boja = nBoj;
+        //    voziloBo.Tezina = nTez;
+        //    voziloBo.vozniPark = nVozPar;
+
+
+        //    vozilo.DodajVozilo(voziloBo);
+        //    return View("NadjiVoziloPoReg", vozilo.NadjiSvaVozila());
+        //}
+
         [HttpPost]
         public IActionResult DodajVozilo(VoziloBO voziloBo)
         {
-            //RacunBO racunBo = new RacunBO();
-            //racunBo.RacunId = nID;
-            //racunBo.VoziloFk = VozilaPregled;
-            //racunBo.DokumentacijaFk = DokumentacijaPregled;
-            //racunBo.Cena = nCen;
-            //racunBo.BrojDana = nDan;
-            //racunBo.Datum = nDat;
-
-            if (vozilo.PostojiVoziloPoReg(voziloBo.RegistracioniBroj))
-            {
-                ModelState.AddModelError("RegistracioniBroj", "Postoji vec takav registracioni broj");
-            }
-
-            //if (racunBo.Cena <= 0 || String.IsNullOrEmpty(racunBo.Cena.ToString()))
+            //if (vozilo.PostojiVoziloPoReg(voziloBo.RegistracioniBroj))
             //{
-            //    ModelState.AddModelError("Cena", "Cena mora biti veca od 0");
+            //    ModelState.AddModelError("RegistracioniBroj", "Postoji vec takav registracioni broj");
+            //}
+
+            //if (voziloBo.Tip == "Tip" || String.IsNullOrEmpty(voziloBo.Tip.ToString()))
+            //{
+            //    ModelState.AddModelError("Tip", "Tip mora biti izabran");
             //}
 
             //if (racunBo.DokumentacijaFk <= 0)
@@ -106,31 +118,15 @@ namespace pokusajNecega3.Controllers
             {
                 vozilo.KreirajVozilo(voziloBo);
                 ViewBag.Uspeh = true;
-                return View("ListaVozila", vozilo.NadjiSvaVozila());
+                //return View("NadjiSvaVozilaPoReg", vozilo.NadjiSvaVozila());
+
+                return View("NadjiVoziloPoReg", vozilo.NadjiSvaVozila());
             }
-            ViewBag.Vozila = vozilo.NadjiSvaVozila();
-            ViewBag.Tip = vozilo.NadjiVozilaTogTipa();
+            //ViewBag.VozniPark = vozilo.VozPark();
+            ViewBag.Tip = vozilo.NadjiSveTipove();
             return View("Dodaj", voziloBo);
         }
 
-
-
-        [HttpPost]
-        public IActionResult DodajVozilo(string nReg, string TipVozila, string nMod, bool nZauz, string nBoj, int nTez, int nVozPar)
-        {
-            VoziloBO voziloBo = new VoziloBO();
-            voziloBo.RegistracioniBroj = nReg;
-            voziloBo.Tip = TipVozila;
-            voziloBo.Model = nMod;
-            voziloBo.Zauzeto = nZauz;
-            voziloBo.Boja = nBoj;
-            voziloBo.Tezina = nTez;
-            voziloBo.vozniPark = nVozPar;
-
-
-            vozilo.DodajVozilo(voziloBo);
-            return View("NadjiVoziloPoReg", vozilo.NadjiSvaVozila());
-        }
 
 
         public IActionResult Brisi(string reg)

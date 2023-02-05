@@ -144,6 +144,23 @@ namespace pokusajNecega3.Models.EFRepository
             return listaReg;
         }
 
+        public IEnumerable<string> NadjiSveTipove()
+        {
+            List<string> listaTipova = new List<string>();
+            string trenutna;
+            foreach (Vozilo vozilo in baza.Vozilo)
+            {
+                trenutna = vozilo.Tip;
+                if (!listaTipova.Contains(trenutna))
+                {
+                    listaTipova.Add(trenutna);
+                }
+            }
+
+            return listaTipova;
+        }
+
+
         public void KreirajVozilo(VoziloBO voziloBo)
         {
             Vozilo vozilo = new Vozilo();

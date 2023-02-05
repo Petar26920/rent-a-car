@@ -97,6 +97,22 @@ namespace pokusajNecega3.Models.EFRepository
             baza.SaveChanges();
         }
 
+        public void AzurirajVozilo(VoziloBO voziloBo)
+        {
+            Vozilo vozilo = new Vozilo();
+            vozilo.RegistracioniBroj = voziloBo.RegistracioniBroj;
+            vozilo.Tip = voziloBo.Tip;
+            vozilo.Model = voziloBo.Model;
+            vozilo.Boja = voziloBo.Boja;
+            vozilo.Tezina = voziloBo.Tezina;
+            vozilo.Zauzeto = voziloBo.Zauzeto;
+            vozilo.VozniParkFk = voziloBo.vozniPark;
+
+            baza.Vozilo.Update(vozilo);
+
+            baza.SaveChanges();
+        }
+
         public IEnumerable<string> NadjiVozilaTogTipa()
         {
             List<string> listaTipova = new List<string>();
@@ -111,6 +127,21 @@ namespace pokusajNecega3.Models.EFRepository
             }
 
             return listaTipova;
+        }
+        public IEnumerable<string> NadjiSveReg()
+        {
+            List<string> listaReg = new List<string>();
+            string trenutna;
+            foreach (Vozilo vozilo in baza.Vozilo)
+            {
+                trenutna = vozilo.RegistracioniBroj;
+                if (!listaReg.Contains(trenutna))
+                {
+                    listaReg.Add(trenutna);
+                }
+            }
+
+            return listaReg;
         }
 
         public void KreirajVozilo(VoziloBO voziloBo)

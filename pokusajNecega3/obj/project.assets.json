@@ -7255,7 +7255,8 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 2.1.14",
       "Microsoft.EntityFrameworkCore.SqlServer.Design >= 1.1.6",
       "Microsoft.EntityFrameworkCore.Tools >= 2.1.14",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.5"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.5",
+      "Microsoft.VisualStudio.Web.CodeGeneration.Utils >= 3.1.5"
     ]
   },
   "packageFolders": {
@@ -7317,6 +7318,10 @@
             "version": "[2.1.14, )"
           },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+            "target": "Package",
+            "version": "[3.1.5, )"
+          },
+          "Microsoft.VisualStudio.Web.CodeGeneration.Utils": {
             "target": "Package",
             "version": "[3.1.5, )"
           }

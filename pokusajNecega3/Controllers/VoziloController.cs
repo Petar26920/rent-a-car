@@ -71,7 +71,7 @@ namespace pokusajNecega3.Controllers
 
 
         [HttpPost]
-        public IActionResult DodajRacun(VoziloBO voziloBo)
+        public IActionResult DodajVozilo(VoziloBO voziloBo)
         {
             //RacunBO racunBo = new RacunBO();
             //racunBo.RacunId = nID;
@@ -173,8 +173,15 @@ namespace pokusajNecega3.Controllers
 
         //AZURIRANJE
         /////////////////////////////////////////////////////
-        
-        public IActionResult AzurirajVozilo(string reg)
+        public IActionResult Azuriraj()
+        {
+            ViewBag.Tip = vozilo.NadjiVozilaTogTipa();
+            //ViewBag.Vozila = vozilo.NadjiSvaVozila();
+            ViewBag.Reg = vozilo.NadjiSveReg();
+            return View();
+        }
+
+        public IActionResult AzurirajVozilo(VoziloBO voziloBo)
         {
             return View();
         }

@@ -9,7 +9,7 @@ namespace pokusajNecega3.Models.BusinesObject
     public class RacunBO
     {
         [Required(ErrorMessage ="Morate da unesete ID racuna")]
-        [RegularExpression("[0-9]+",ErrorMessage ="Samo brojevi su priznati")]
+        [RegularExpression("[0-9]+",ErrorMessage ="Mora samo brojevi")]
         public int RacunId { get; set; }
         [Required(ErrorMessage ="Morate da izaberete registraciju vozila")]
         public string VoziloFk { get; set; }

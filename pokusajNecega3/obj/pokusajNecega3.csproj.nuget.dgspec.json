@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Petar\\source\\repos\\PPP\\uptodate\\pokusajNecega3\\pokusajNecega3.csproj": {}
+    "D:\\Projekat za ppp\\PPP\\pokusajNecega3\\pokusajNecega3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Petar\\source\\repos\\PPP\\uptodate\\pokusajNecega3\\pokusajNecega3.csproj": {
+    "D:\\Projekat za ppp\\PPP\\pokusajNecega3\\pokusajNecega3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Petar\\source\\repos\\PPP\\uptodate\\pokusajNecega3\\pokusajNecega3.csproj",
+        "projectUniqueName": "D:\\Projekat za ppp\\PPP\\pokusajNecega3\\pokusajNecega3.csproj",
         "projectName": "pokusajNecega3",
-        "projectPath": "C:\\Users\\Petar\\source\\repos\\PPP\\uptodate\\pokusajNecega3\\pokusajNecega3.csproj",
-        "packagesPath": "C:\\Users\\Petar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Petar\\source\\repos\\PPP\\uptodate\\pokusajNecega3\\obj\\",
+        "projectPath": "D:\\Projekat za ppp\\PPP\\pokusajNecega3\\pokusajNecega3.csproj",
+        "packagesPath": "C:\\Users\\sladj\\.nuget\\packages\\",
+        "outputPath": "D:\\Projekat za ppp\\PPP\\pokusajNecega3\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Visual Studio\\Visual Studio Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Petar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sladj\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -77,6 +77,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.23, 3.1.23]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -85,7 +91,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.416\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

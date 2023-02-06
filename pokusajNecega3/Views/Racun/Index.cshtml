@@ -25,8 +25,8 @@
 
             <label>Unesite ID računa:</label>
             <input class="form-control" type="text" name="nRac" id="iRac" placeholder="A-123" /> <br />
-            <input onclick="funkcija()" type="button" name="nTrazi" value="Pretraži" class="btn btn-success" />
-
+            <input onclick="funkcija()" type="button" name="nTrazi" value="Pretraži" class="btn btn-success" /> <br /><br />
+            @Html.ActionLink("Nazad", "VecUlogovanKorisnik", "Home", new { area = "" }, new { @class = "btn btn-info" })
         </div>
 
     </div>

@@ -30,6 +30,18 @@ namespace pokusajNecega3.Controllers
             return View (korisnik.nadjiKorisnika(nKor, nSif));
         }
 
+        public IActionResult VecUlogovanAdmin()
+        {
+            ViewBag.Uloga = "admin";
+            return View("VecUlogovan");
+        }
+
+        public IActionResult VecUlogovanKorisnik()
+        {
+            ViewBag.Uloga = "korisnik";
+            return View("VecUlogovan");
+        }
+
         public IActionResult Privacy()
         {
             return View();

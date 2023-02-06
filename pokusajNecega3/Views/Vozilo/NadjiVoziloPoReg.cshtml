@@ -2,6 +2,7 @@
 @model IEnumerable<pokusajNecega3.Models.BusinesObject.VoziloBO>
 @{
     Layout = "_Layout";
+
 }
 
 
@@ -36,7 +37,8 @@
             <div>
                 <label>Unesite registracioni broj vozila:</label>
                 <input class="form-control" type="text" name="nReg" id="iReg" placeholder="npr. 123" /> <br />
-                <input onclick="funkcija()" type="button" name="nTrazi" value="Pretrazi" class="btn btn-success" />
+                <input onclick="funkcija()" type="button" name="nTrazi" value="Pretrazi" class="btn btn-success" /> <br /><br />
+                @Html.ActionLink("Nazad", "VecUlogovanAdmin", "Home", new { area = "" }, new { @class = "btn btn-info" })
             </div>
         </div>
 

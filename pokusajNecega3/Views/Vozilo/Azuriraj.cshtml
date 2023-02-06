@@ -2,6 +2,7 @@
 @model pokusajNecega3.Models.BusinesObject.VoziloBO
 @{
     ViewData["Title"] = "Azuriraj";
+
 }
 
 <h1>Dodajte novo vozilo</h1>
@@ -42,7 +43,7 @@
 
                 }
                 <br />
-                @Html.ActionLink("Lista vozila", "NadjiVoziloPoReg", "Vozilo", new { area = "" }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Nazad", "VecUlogovanAdmin", "Home", new { area = "" }, new { @class = "btn btn-info" })
             </div>
         </div>
     </div>

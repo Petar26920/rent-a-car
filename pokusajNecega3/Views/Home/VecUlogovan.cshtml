@@ -1,0 +1,33 @@
+﻿
+<h1>Dobrodošli</h1>
+@*<h2>@Model.KorisnickoIme</h2>*@
+
+
+
+@if (ViewBag.Uloga == "admin")
+{
+    <h2>Admin</h2>
+    @Html.ActionLink("Pretraga i brisanje vozila", "NadjiVoziloPoReg", "Vozilo")
+    <br />
+    @Html.ActionLink("Unos novog vozila", "Dodaj", "Vozilo")
+    <br />
+    @Html.ActionLink("Ažuriranje podataka vozila", "Azuriraj", "Vozilo")
+    <br />
+
+}
+
+@if (ViewBag.Uloga == "korisnik")
+{
+    <h2>Korisnik</h2>
+    @Html.ActionLink("Provera vozila na raspolaganju", "Index", "Vozilo")
+    <br />
+    @Html.ActionLink("Pretraga vozila", "NadjiVoziloPoRegRadnik", "Vozilo")
+    <br />
+    @Html.ActionLink("Kreiranje računa", "Dodaj", "Racun")
+    <br />
+    @Html.ActionLink("Storniranje računa", "Index", "Racun")
+    <br />
+    @Html.ActionLink("Kreiranje dokumentacije", "Index", "Dokumentacija")
+    <br />
+
+}

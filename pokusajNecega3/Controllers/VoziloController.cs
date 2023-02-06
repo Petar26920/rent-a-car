@@ -76,10 +76,7 @@ namespace pokusajNecega3.Controllers
                 ModelState.AddModelError("RegistracioniBroj", "Postoji vec takav registracioni broj");
             }
 
-            if (voziloBo.vozniPark!=1||voziloBo.vozniPark!=2)
-            {
-                ModelState.AddModelError("Tip", "Tip mora biti izabran");
-            }
+            
 
             if (ModelState.IsValid)
             {

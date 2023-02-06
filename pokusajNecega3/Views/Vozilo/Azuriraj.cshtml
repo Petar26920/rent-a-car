@@ -42,9 +42,7 @@
 
                 }
                 <br />
-                @*NAPRAVITI DA BUTTON PREBACUJE NA POGLED ZA VOZILA*@
-                
-                @*<button href="@Html.ActionLink("NadjiVoziloPoReg", "Vozilo")">Prebaci se</button>*@
+                @Html.ActionLink("Lista vozila", "NadjiVoziloPoReg", "Vozilo", new { area = "" }, new { @class = "btn btn-info" })
             </div>
         </div>
     </div>

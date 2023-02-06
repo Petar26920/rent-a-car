@@ -16,7 +16,7 @@
     {
         ViewBag.Uspeh = false;
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Uspesno ste dodali vozilo!</strong>
+            <strong>Uspešno ste dodali vozilo!</strong>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -24,7 +24,7 @@
     }
 
     <div hidden id="prikazUspeha" class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Uspesno ste obrisali vozilo!</strong>
+        <strong>Uspešno ste obrisali vozilo!</strong>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -80,7 +80,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Da li ste sigurni da zelite da izbrisete izabrano vozilo?</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Da li ste sigurni da želite da izbrišete izabrano vozilo?</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -128,8 +128,6 @@ function funkcija() {
 
     //NE PROSLEDJUJE DOBRO PROMENLJIVe
     function funkcija2(reg,mod) {
-        alert(reg);
-        alert(mod);
         document.getElementById('iRegistracija').value = reg;
         document.getElementsByName('nReg').value = reg;
         document.getElementById('iMod').value = mod;

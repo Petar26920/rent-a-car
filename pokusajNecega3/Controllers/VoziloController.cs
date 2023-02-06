@@ -68,61 +68,25 @@ namespace pokusajNecega3.Controllers
         }
 
 
-
-        
-
-
-
-        //[HttpPost]
-        //public IActionResult DodajVozilo(string nReg, string TipVozila, string nMod, bool nZauz, string nBoj, int nTez, int nVozPar)
-        //{
-        //    VoziloBO voziloBo = new VoziloBO();
-        //    voziloBo.RegistracioniBroj = nReg;
-        //    voziloBo.Tip = TipVozila;
-        //    voziloBo.Model = nMod;
-        //    voziloBo.Zauzeto = nZauz;
-        //    voziloBo.Boja = nBoj;
-        //    voziloBo.Tezina = nTez;
-        //    voziloBo.vozniPark = nVozPar;
-
-
-        //    vozilo.DodajVozilo(voziloBo);
-        //    return View("NadjiVoziloPoReg", vozilo.NadjiSvaVozila());
-        //}
-
         [HttpPost]
         public IActionResult DodajVozilo(VoziloBO voziloBo)
         {
-            //if (vozilo.PostojiVoziloPoReg(voziloBo.RegistracioniBroj))
-            //{
-            //    ModelState.AddModelError("RegistracioniBroj", "Postoji vec takav registracioni broj");
-            //}
+            if (vozilo.PostojiVoziloPoReg(voziloBo.RegistracioniBroj))
+            {
+                ModelState.AddModelError("RegistracioniBroj", "Postoji vec takav registracioni broj");
+            }
 
-            //if (voziloBo.Tip == "Tip" || String.IsNullOrEmpty(voziloBo.Tip.ToString()))
-            //{
-            //    ModelState.AddModelError("Tip", "Tip mora biti izabran");
-            //}
-
-            //if (racunBo.DokumentacijaFk <= 0)
-            //{
-            //    ModelState.AddModelError("DokumentacijaFk", "Morate da izaberete dokumentaciju");
-            //}
-
-            //if (racunBo.BrojDana <= 0)
-            //{
-            //    ModelState.AddModelError("BrojDana", "Broj dana ne moze biti manji ili 0");
-            //}
-
+            if (voziloBo.vozniPark!=1||voziloBo.vozniPark!=2)
+            {
+                ModelState.AddModelError("Tip", "Tip mora biti izabran");
+            }
 
             if (ModelState.IsValid)
             {
                 vozilo.KreirajVozilo(voziloBo);
                 ViewBag.Uspeh = true;
-                //return View("NadjiSvaVozilaPoReg", vozilo.NadjiSvaVozila());
-
                 return View("NadjiVoziloPoReg", vozilo.NadjiSvaVozila());
             }
-            //ViewBag.VozniPark = vozilo.VozPark();
             ViewBag.Tip = vozilo.NadjiSveTipove();
             return View("Dodaj", voziloBo);
         }
@@ -132,15 +96,11 @@ namespace pokusajNecega3.Controllers
         public IActionResult Brisi(string reg)
         {
             vozilo.Brisi(reg);
-            /*Treba da promenis ime za partial view NadjiRacunPoID jer ga koristis i za nadji sve racune*/
-            return PartialView("ListaVozila", vozilo.NadjiSvaVozila());
+            return PartialView("ListaVozilaRadnik", vozilo.NadjiSvaVozila());
         }
 
 
-
-        //Za radnika
-        ///////////////////////////////////////////////////////
-
+        //ZA RADNIKA
         public IActionResult NadjiVoziloPoRegRadnik(string reg, bool iProlaz)
         {
             if (iProlaz == true)
@@ -151,8 +111,8 @@ namespace pokusajNecega3.Controllers
             {
                 return PartialView(vozilo.NadjiSvaVozila());
             }
-
         }
+
 
         public IActionResult ListaVozilaRadnik(string reg, bool iProlaz)
         {

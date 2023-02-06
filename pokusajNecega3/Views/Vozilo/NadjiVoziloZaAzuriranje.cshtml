@@ -4,8 +4,8 @@
 
 @foreach (var voz in Model)
 {
-        string boja = voz.Boja;
-  
+    string boja = voz.Boja;
+
     <label>Tip vozila:</label>
     <br />
     @*<input type="text" class="form-control" name="nTip" id="iTip" value="@voz.Tip" />*@
@@ -24,7 +24,7 @@
     <br />
     <input type="text" class="form-control" name="nBoj" id="iBoj" value=@voz.Boja />
     <br />
-    <label>Tezina:</label>
+    <label>Težina:</label>
     <br />
     <input type="number" min="0" max="10000" class="form-control" name="nTez" id="iTez" value="@voz.Tezina" />
     <br />
@@ -37,15 +37,22 @@
     @if (voz.Zauzeto)
     {
 
-        <input type="checkbox" id="iZauz" onchange="zauzeto()" name="nZauz" class="form-control" checked value="true"/>
+        <input type="checkbox" id="iZauz" onchange="zauzeto()" name="nZauz" class="form-control" checked value="true" />
 
     }
     else
     {
 
-        <input type="checkbox" id="iZauz" name="nZauz" onchange="zauzeto()" class="form-control" value="false"/>
+        <input type="checkbox" id="iZauz" name="nZauz" onchange="zauzeto()" class="form-control" value="false" />
 
     }
     <br />
 
+
+    
+
 }
+
+
+
+

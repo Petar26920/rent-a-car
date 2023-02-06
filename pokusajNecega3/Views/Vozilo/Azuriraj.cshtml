@@ -9,7 +9,7 @@
 @if (ViewBag.uspeh == true)
 {
     <div id="uspeh" class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Uspesno ste azurirali vozilo!</strong>
+        <strong>Uspešno ste ažurirali vozilo!</strong>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -37,10 +37,14 @@
                     </div>
                     <br />
 
-                    //ODRADITI ZAUZETOST
 
-                    <input type="submit" value="Azuriraj vozilo" class="btn btn-success" name="nSub" id="iSub" />
+                    <input type="submit" value="Ažuriraj vozilo" class="btn btn-success" name="nSub" id="iSub" />
+
                 }
+                <br />
+                @*NAPRAVITI DA BUTTON PREBACUJE NA POGLED ZA VOZILA*@
+                
+                @*<button href="@Html.ActionLink("NadjiVoziloPoReg", "Vozilo")">Prebaci se</button>*@
             </div>
         </div>
     </div>

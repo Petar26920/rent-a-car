@@ -6,7 +6,7 @@
     {
         ViewBag.Uspeh = false;
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Uspesno ste dodali racun!</strong>
+            <strong>Uspešno ste dodali račun!</strong>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -14,7 +14,7 @@
     }
 
     <div hidden id="prikazUspeha" class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Uspesno ste obrisali racun!</strong>
+        <strong>Uspešno ste obrisali račun!</strong>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -23,9 +23,9 @@
     <div class="row">
         <div class="col-md-4">
 
-            <label>Unesite ID racuna:</label>
+            <label>Unesite ID računa:</label>
             <input class="form-control" type="text" name="nRac" id="iRac" placeholder="A-123" /> <br />
-            <input onclick="funkcija()" type="button" name="nTrazi" value="Pretrazi" class="btn btn-success" />
+            <input onclick="funkcija()" type="button" name="nTrazi" value="Pretraži" class="btn btn-success" />
 
         </div>
 
@@ -37,7 +37,7 @@
     <table class="table">
         <tr>
             <th>
-                RacunID:
+                RačunID:
             </th>
             <th>
                 Datum:
@@ -78,21 +78,21 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Da li ste sigurni da zelite da izbrisete izabrani racun</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Da li ste sigurni da želite da izbrišete izabrani račun</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <label>Id racuna:</label><br />
+                <label>Id računa:</label><br />
                 <input class="form-control" readonly type="text" name="nId" id="iId" value="" /><br />
                 @*<input readonly type="text" name="nDat" id="iDat" value="" /><br />*@
-                <label>Cena racuna:</label><br />
+                <label>Cena računa:</label><br />
                 <input class="form-control" readonly type="text" name="nCen" id="iCen" value="" />
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Zatvori</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="brisiRacun()">Izbrisi</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="brisiRacun()">Izbriši</button>
             </div>
         </div>
     </div>

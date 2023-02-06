@@ -103,7 +103,7 @@ namespace pokusajNecega3.Models.EFRepository
         public void AzurirajVozilo(VoziloBO voziloBo)
         {
             Vozilo vozilo = new Vozilo();
-            foreach(Vozilo voz in baza.Vozilo.Where(t=>t.RegistracioniBroj == voziloBo.RegistracioniBroj))
+            foreach (Vozilo voz in baza.Vozilo.Where(t => t.RegistracioniBroj == voziloBo.RegistracioniBroj))
             {
                 voz.Boja = voziloBo.Boja;
                 voz.Model = voziloBo.Model;
@@ -112,16 +112,9 @@ namespace pokusajNecega3.Models.EFRepository
                 voz.Zauzeto = voziloBo.Zauzeto;
                 voz.VozniParkFk = voziloBo.vozniPark;
             }
-            //vozilo.RegistracioniBroj = voziloBo.RegistracioniBroj;
-            //vozilo.Tip = voziloBo.Tip;
-            //vozilo.Model = voziloBo.Model;
-            //vozilo.Boja = voziloBo.Boja;
-            //vozilo.Tezina = voziloBo.Tezina;
-            //vozilo.Zauzeto = voziloBo.Zauzeto;
-            //vozilo.VozniParkFk = voziloBo.vozniPark;
-
-
-            baza.SaveChanges();
+            if (!string.IsNullOrEmpty(voziloBo.Boja)&&voziloBo.Model!=""&&voziloBo.Tezina>0&&voziloBo.Tip!=""&&voziloBo.vozniPark==1||voziloBo.vozniPark==2)
+                baza.SaveChanges();
+            
 
         }
 

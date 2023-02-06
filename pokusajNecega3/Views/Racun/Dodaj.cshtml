@@ -4,47 +4,6 @@
     ViewData["Title"] = "Dodaj";
 }
 
-@*<h1>Dodajte novi racun</h1>
-<div class="container">
-    <div class="row">
-        <div class="col-md-5">
-            @using (Html.BeginForm("DodajRacun", "Racun", FormMethod.Post))
-            {
-                <label asp-for="RacunId">ID-Racuna</label> <br />
-                <input asp-for="RacunId" type="text" class="form-control" name="nId" id="iId" placeholder="Broj racuna"/>
-                <span asp-validation-for="RacunId" class="text-danger"></span> <br />
-                <label>Registracioni broj vozila:</label> <br />
-                @Html.DropDownList("VozilaPregled", new SelectList(@ViewBag.Vozila, "RegistracioniBroj", "RegistracioniBroj"),
-            "Izaberi",
-            new
-            {
-                @class = "form-control",
-                //@onchange = "OnSelectedVozilo(this.value)"
-            })<br />
-            <label>Izaberite dokumentaciju:</label><br />
-                @Html.DropDownList("DokumentacijaPregled", new SelectList(@ViewBag.Dokumentacija, "Idvozacke", "Idvozacke"),
-                "Izaberi",
-                new
-                {
-                    @class = "form-control",
-                    @onchange = "provera(this.value)"
-                })<br />
-                <label asp-for="Cena">Cena:</label> <br />
-                <input asp-for="Cena" type="number" id="iCen" name="nCen" class="form-control" /> 
-                <span asp-validation-for="Cena" class="text-danger"></span> <br />
-                <label asp-for="BrojDana">Broj dana:</label> <br />
-                <input asp-for="BrojDana" type="number" id="iDan" name="nDan" class="form-control" /> 
-                <span asp-validation-for="BrojDana"></span><br />
-                <label asp-for="Datum">Datum</label> <br />
-                <input asp-for="Datum" type="date" id="iDat" name="nDat" class="form-control" />
-                <span asp-validation-for="Datum" class="text-danger"></span><br />
-                <input type="submit" value="Kreiraj racun" class="btn btn-success" name="nSub" id="iSub" />
-            }
-        </div>
-    </div>
-
-</div>*@
-
 
 <div class="container">
     <div class="col-md-5">
@@ -52,12 +11,12 @@
         <form asp-action="DodajRacun">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="RacunId" class="control-label">Unesite ID racuna:</label>
+                <label asp-for="RacunId" class="control-label">Unesite ID računa:</label>
                 <input asp-for="RacunId" class="form-control" />
                 <span asp-validation-for="RacunId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DokumentacijaFk" class="control-label">Izaberite broj vozacke:</label>
+                <label asp-for="DokumentacijaFk" class="control-label">Izaberite broj vozačke:</label>
                 <select class="form-control" asp-for="DokumentacijaFk"
                         asp-items="@(new SelectList(ViewBag.Dokumentacija, "Idvozacke", "Idvozacke"))">
                     <option disabled selected>Izaberite jedno</option>

@@ -1,7 +1,6 @@
 ﻿@model pokusajNecega3.Models.BusinesObject.VoziloBO
 @{
     ViewData["Title"] = "Dodaj";
-    ViewBag.Uloga = "admin";
 }
 
 <h1>Dodajte novo vozilo</h1>
@@ -43,7 +42,7 @@
                 <input asp-for="Boja" type="text" class="form-control" />
                 <span asp-validation-for="Boja" class="text-danger"></span>
             </div>
-
+            
             @*TEZINA*@
             <div class="form-group">
                 <label asp-for="Tezina" class="control-label">Težina:</label>
@@ -53,14 +52,13 @@
             @*VOZNI PARK*@
             <div class="form-group">
                 <label asp-for="vozniPark" class="control-label">Vozni park:</label>
-                <input asp-for="vozniPark" type="number" min="0" max="1" class="form-control" />
+                <input asp-for="vozniPark" type="number" min="1" max="2" class="form-control" />
                 <span asp-validation-for="vozniPark" class="text-danger"></span>
             </div>
 
             <input type="submit" value="Dodaj vozilo" class="btn btn-success" name="nSub" id="iSub" />
         </form>
-        <br />
-        @Html.ActionLink("Nazad", "VecUlogovanAdmin", "Home", new { area = "" }, new { @class = "btn btn-info" })
+
     </div>
 
 </div>

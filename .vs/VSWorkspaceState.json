@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\pokusajNecega3",
-    "\\pokusajNecega3\\Controllers"
+    "\\pokusajNecega3\\Controllers",
+    "\\pokusajNecega3\\Models"
   ],
-  "SelectedNode": "\\pokusajNecega3\\Controllers\\VoziloController.cs",
+  "SelectedNode": "\\pokusajNecega3\\Models\\ProjekatZaPPPKojiRadiContext.cs",
   "PreviewInSolutionExplorer": false
 }

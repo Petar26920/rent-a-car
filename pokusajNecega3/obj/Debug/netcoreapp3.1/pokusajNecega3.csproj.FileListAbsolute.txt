@@ -544,3 +544,4 @@ C:\Users\sladj\Desktop\PPP-IDKstvarno\pokusajNecega3\obj\Debug\netcoreapp3.1\pok
 C:\Users\sladj\Desktop\PPP-IDKstvarno\pokusajNecega3\obj\Debug\netcoreapp3.1\pokusajNecega3.pdb
 C:\Users\sladj\Desktop\PPP-IDKstvarno\pokusajNecega3\obj\Debug\netcoreapp3.1\pokusajNecega3.genruntimeconfig.cache
 D:\Projekat za ppp\PPP\pokusajNecega3\obj\Debug\netcoreapp3.1\Razor\Views\Home\VecUlogovan.cshtml.g.cs
+C:\Users\Petar\source\repos\PPP\uptodate\pokusajNecega3\obj\Debug\netcoreapp3.1\Razor\Views\Home\VecUlogovan.cshtml.g.cs
